@@ -25,7 +25,6 @@
                         <label>Username</label>
                         <asp:RequiredFieldValidator ID="UsrVal" runat="server" ErrorMessage="*" ForeColor="#990000" ControlToValidate="txtUser"></asp:RequiredFieldValidator>
                         <asp:TextBox type="text" ID="txtUser" runat="server" class="text-input"></asp:TextBox>
-
                     </div>
 
                     <div>
