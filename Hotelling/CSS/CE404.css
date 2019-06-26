@@ -1,0 +1,25 @@
+﻿body {
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    background-image: url('../Images/gif404.gif');
+    background-size: cover;
+    background-color: #000;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+#form404 .message {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+    #form404 .message h1 {
+        font-size: 144px;
+        font-weight: 100;
+        margin-bottom: 16px;
+        margin:0;
+    }

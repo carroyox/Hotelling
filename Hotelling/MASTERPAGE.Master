@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MASTERPAGE.master.cs" Inherits="Hotelling.MASTERPAGE" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Hotelling</title>
+   
+    <link href="CSS/HojadeEstilo.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+         
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+  
+    <form id="form1" runat="server">
+
+        <nav>
+            <ul>
+              
+              <li>  <a href="CRUD_Asientos.aspx" style="color:whitesmoke"> Asientos</a> </li>
+                 <li>  <a href="CRUD_Usuarios.aspx" style="color:whitesmoke"> Usuarios</a> </li>
+                <li>  <a href="CRUD_Oficinas.aspx" style="color:whitesmoke"> Oficinas</a> </li>
+
+            </ul>
+        </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+         <footer>
+        <br />
+        <br />
+     <p>Copyright &copy; 2019 UAM - Universidad Americana . Todos los derechos reservados.</p>
+    
+	
+</footer>
+    </form>
+</body>
+</html>
