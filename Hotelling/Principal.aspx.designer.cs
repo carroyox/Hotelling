@@ -11,7 +11,7 @@ namespace Hotelling
 {
 
 
-    public partial class PaginaPrincipal
+    public partial class Principal
     {
     }
 }
