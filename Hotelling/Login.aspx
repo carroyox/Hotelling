@@ -54,6 +54,21 @@
                 </footer>
             </div>
 
+            <div class="login">
+                <div class="form-login">
+                    <h1>Login</h1>
+                    -<img src="Images/Avatar.jpg" class="avatar" />
+                </div>
+                <div class="form-log">
+                    <input type="text" placeholder="&#128100;Usuario" />
+                    <input type="password" placeholder="&#128275;Contraseña" />
+                    <input class="btn-save" type="submit" value="Login" />
+                    <a href="#">Olvido su Contrasena?</a><br>
+                    <a href="Usuarios.aspx">No tiene Cuenta?</a>
+
+                </div>
+            </div>
+
         </div>
 
         <div id="right">
