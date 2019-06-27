@@ -46,7 +46,7 @@
                 </div>
 
                 <footer id="main-footer">
-                    <span>&copy;Copyright 2017 - Universidad Americana</span><br />
+                    <span>&copy;Copyright 2017 - Universidad Shit</span><br />
                     <span>Todos los derechos reservados</span>
                     <div>
                         <a href="a">Terms of use</a> | <a href="#">Privacy Policy</a>
