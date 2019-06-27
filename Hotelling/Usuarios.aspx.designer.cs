@@ -11,7 +11,7 @@ namespace Hotelling
 {
 
 
-    public partial class CRUD_Oficinas
+    public partial class Usuarios
     {
     }
 }

@@ -67,46 +67,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CRUD_Asientos.aspx" />
-    <Content Include="CRUD_Oficinas.aspx" />
-    <Content Include="CRUD_Usuarios.aspx" />
+    <Content Include="Asientos.aspx" />
     <Content Include="CSS\CE404.css" />
     <Content Include="CSS\HojadeEstilo.css" />
+    <Content Include="CSS\HojaEstilos.css" />
+    <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleLogin.css" />
     <Content Include="error.aspx" />
     <Content Include="Images\bklog1.jpg" />
     <Content Include="Images\bklog2.jpg" />
     <Content Include="Images\bklog3.jpg" />
+    <Content Include="Images\facebook.png" />
     <Content Include="Images\gif404.gif" />
     <Content Include="Images\hotelingmain-1080x675.jpg" />
+    <Content Include="Images\ht.jpg" />
     <Content Include="Images\icon.png" />
+    <Content Include="Images\Instagram.png" />
+    <Content Include="Images\youtube.png" />
     <Content Include="JavaScript\node.js" />
     <Content Include="JavaScript\test404.js" />
     <Content Include="Login.aspx" />
+    <Content Include="Oficinas.aspx" />
     <Content Include="PaginaPrincipal.aspx" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CRUD_Asientos.aspx.cs">
-      <DependentUpon>CRUD_Asientos.aspx</DependentUpon>
+    <Compile Include="Asientos.aspx.cs">
+      <DependentUpon>Asientos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CRUD_Asientos.aspx.designer.cs">
-      <DependentUpon>CRUD_Asientos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRUD_Oficinas.aspx.cs">
-      <DependentUpon>CRUD_Oficinas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRUD_Oficinas.aspx.designer.cs">
-      <DependentUpon>CRUD_Oficinas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRUD_Usuarios.aspx.cs">
-      <DependentUpon>CRUD_Usuarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRUD_Usuarios.aspx.designer.cs">
-      <DependentUpon>CRUD_Usuarios.aspx</DependentUpon>
+    <Compile Include="Asientos.aspx.designer.cs">
+      <DependentUpon>Asientos.aspx</DependentUpon>
     </Compile>
     <Compile Include="error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
@@ -122,12 +114,19 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MASTERPAGE.Master.cs">
-      <DependentUpon>MASTERPAGE.Master</DependentUpon>
+    <Compile Include="Masterpage.Master.cs">
+      <DependentUpon>Masterpage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MASTERPAGE.Master.designer.cs">
-      <DependentUpon>MASTERPAGE.Master</DependentUpon>
+    <Compile Include="Masterpage.Master.designer.cs">
+      <DependentUpon>Masterpage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Oficinas.aspx.cs">
+      <DependentUpon>Oficinas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oficinas.aspx.designer.cs">
+      <DependentUpon>Oficinas.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaginaPrincipal.aspx.cs">
       <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
@@ -137,9 +136,16 @@
       <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MASTERPAGE.Master" />
+    <Content Include="Masterpage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
