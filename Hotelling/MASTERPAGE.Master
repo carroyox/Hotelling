@@ -6,6 +6,7 @@
 <head runat="server">
     <title>Hotelling</title>
     <link href="CSS/HojaEstilos.css" rel="stylesheet" />
+      <link rel="icon" type="image/png" sizes="32x32" href="Images/icon.png">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
