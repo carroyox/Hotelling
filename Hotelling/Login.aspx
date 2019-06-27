@@ -6,7 +6,7 @@
 <head runat="server">
     <title>System Q&R / CR</title>
     <link href="CSS/StyleLogin.css" rel="stylesheet" />
-    <script src="JavaScript/node.js" type="text/javascript"></script>
+    <script src="JavaScript/login.js" type="text/javascript"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="Images/icon.png">
 </head>
 <body onload="showSlides()">
@@ -18,6 +18,7 @@
 
                     <img src="https://image.ibb.co/hW1YHq/login-logo.png" alt="">
                 </div>
+
                 <form id="form2" runat="server">
 
 
@@ -39,9 +40,11 @@
                     <asp:Button ID="Submit" runat="server" Text="Sign In" type="submit" class="primary-btn" OnClick="Submit_Click" />
 
                 </form>
+
                 <div class="links">
                     <a href="#">Forgot password?</a>
                 </div>
+
                 <footer id="main-footer">
                     <span>&copy;Copyright 2017 - Universidad Americana</span><br />
                     <span>Todos los derechos reservados</span>

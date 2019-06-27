@@ -84,7 +84,7 @@
     <Content Include="Images\icon.png" />
     <Content Include="Images\Instagram.png" />
     <Content Include="Images\youtube.png" />
-    <Content Include="JavaScript\node.js" />
+    <Content Include="JavaScript\login.js" />
     <Content Include="JavaScript\test404.js" />
     <Content Include="Login.aspx" />
     <Content Include="Oficinas.aspx" />
