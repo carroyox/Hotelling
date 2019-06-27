@@ -74,6 +74,7 @@
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleLogin.css" />
     <Content Include="error.aspx" />
+    <Content Include="Images\Avatar.jpg" />
     <Content Include="Images\bklog1.jpg" />
     <Content Include="Images\bklog2.jpg" />
     <Content Include="Images\bklog3.jpg" />

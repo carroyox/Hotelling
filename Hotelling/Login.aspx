@@ -10,88 +10,88 @@
     <link rel="icon" type="image/png" sizes="32x32" href="Images/icon.png">
 </head>
 <body onload="showSlides()">
+    <form id="form" runat="server">
+        <div id="wrapper">
 
-    <div id="wrapper">
-        <div id="left">
-            <div id="sign-in">
-                <div class="logo">
+            <div id="left">
 
-                    <img src="https://image.ibb.co/hW1YHq/login-logo.png" alt="">
+                <div class="login">
+
+
+
+                    <div class="form-login">
+                        <img src="Images/Avatar.jpg" class="avatar" />
+                    </div>
+
+
+                    <div class="form-log">
+
+                        <div>
+                            <asp:TextBox type="text" ID="txtUser" runat="server" class="text-input" placeholder="&#128100;Usuario"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="UsrVal" runat="server" ErrorMessage="*" ForeColor="#990000" ControlToValidate="txtUser"></asp:RequiredFieldValidator>
+
+                        </div>
+
+                        <div>
+                            <asp:TextBox type="password" runat="server" class="text-input" ID="txtPassword" placeholder="&#128275;Password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="PswVal" runat="server" ErrorMessage="*" ForeColor="#990000" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
+
+                        </div>
+
+                        <asp:Button ID="Button1" runat="server" Text="Sign In" type="submit" class="btn-save" OnClick="Submit_Click" />
+
+
+
+                        <div class="links">
+                            <a href="#">Forgot password?</a>
+                        </div>
+
+                        <footer id="main-footer">
+                            <span>&copy;Copyright 2017 - Universidad Shit</span><br />
+                            <span>Todos los derechos reservados</span>
+                            <div>
+                                <a href="a">Terms of use</a> | <a href="#">Privacy Policy</a>
+                            </div>
+                        </footer>
+
+
+                    </div>
+
                 </div>
 
-                <form id="form2" runat="server">
 
 
-                    <div>
-                        <label>Username</label>
-                        <asp:RequiredFieldValidator ID="UsrVal" runat="server" ErrorMessage="*" ForeColor="#990000" ControlToValidate="txtUser"></asp:RequiredFieldValidator>
-                        <asp:TextBox type="text" ID="txtUser" runat="server" class="text-input"></asp:TextBox>
-                    </div>
-
-                    <div>
-                        <label>Password</label>
-                        <asp:RequiredFieldValidator ID="PswVal" runat="server" ErrorMessage="*" ForeColor="#990000" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
-
-                        &nbsp;<asp:TextBox type="password" runat="server" class="text-input" ID="txtPassword"></asp:TextBox>
-
-                    </div>
 
 
-                    <asp:Button ID="Submit" runat="server" Text="Sign In" type="submit" class="primary-btn" OnClick="Submit_Click" />
 
-                </form>
 
-                <div class="links">
-                    <a href="#">Forgot password?</a>
-                </div>
 
-                <footer id="main-footer">
-                    <span>&copy;Copyright 2017 - Universidad Shit</span><br />
-                    <span>Todos los derechos reservados</span>
-                    <div>
-                        <a href="a">Terms of use</a> | <a href="#">Privacy Policy</a>
-                    </div>
-                </footer>
+
+
             </div>
 
-            <div class="login">
-                <div class="form-login">
-                    <h1>Login</h1>
-                    -<img src="Images/Avatar.jpg" class="avatar" />
-                </div>
-                <div class="form-log">
-                    <input type="text" placeholder="&#128100;Usuario" />
-                    <input type="password" placeholder="&#128275;Contraseña" />
-                    <input class="btn-save" type="submit" value="Login" />
-                    <a href="#">Olvido su Contrasena?</a><br>
-                    <a href="Usuarios.aspx">No tiene Cuenta?</a>
+            <div id="right">
+                <div class="showcase mySlides fade" style="background: url(Images/bklog1.jpg) no-repeat center">
+                    <div class="text">
+                        <h1 class="label">Let's create the future together.</h1>
+                    </div>
 
                 </div>
+
+                <div class="showcase mySlides fade" style="background: url(Images/bklog2.jpg) no-repeat center">
+                    <div class="text">
+                        <h1 class="label">Let's create the future together.</h1>
+                    </div>
+                </div>
+
+                <div class="showcase mySlides fade" style="background: url(Images/bklog3.jpg) no-repeat center">
+                    <div class="text">
+                        <h1 class="label">Let's create the future together.</h1>
+                    </div>
+                </div>
+
             </div>
-
         </div>
-
-        <div id="right">
-            <div class="showcase mySlides fade" style="background: url(Images/bklog1.jpg) no-repeat center">
-                <div class="text">
-                    <h1 class="label">Let's create the future together.</h1>
-                </div>
-
-            </div>
-
-            <div class="showcase mySlides fade" style="background: url(Images/bklog2.jpg) no-repeat center">
-                <div class="text">
-                    <h1 class="label">Let's create the future together.</h1>
-                </div>
-            </div>
-
-            <div class="showcase mySlides fade" style="background: url(Images/bklog3.jpg) no-repeat center">
-                <div class="text">
-                    <h1 class="label">Let's create the future together.</h1>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    </form>
 </body>
 </html>
