@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="Asientos.aspx" />
     <Content Include="CSS\CE404.css" />
-    <Content Include="CSS\HojadeEstilo.css" />
     <Content Include="CSS\HojaEstilos.css" />
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleLogin.css" />
@@ -80,7 +79,6 @@
     <Content Include="Images\bklog3.jpg" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\gif404.gif" />
-    <Content Include="Images\hotelingmain-1080x675.jpg" />
     <Content Include="Images\ht.jpg" />
     <Content Include="Images\icon.png" />
     <Content Include="Images\Instagram.png" />
