@@ -12,7 +12,7 @@
 <body>
     <form id="form404" runat="server">
         <div class="message">
-            <h1>404</h1>
+            <h1>666</h1>
             <h2>There's nothing here.</h2>
         </div>
     </form>
