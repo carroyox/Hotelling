@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace Hotelling
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Masterpage : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnSave_Click(object sender, EventArgs e)
         {
 
         }
