@@ -10,7 +10,7 @@
 namespace Hotelling {
     
     
-    public partial class Masterpage {
+    public partial class MASTERPAGE {
         
         /// <summary>
         /// head control.

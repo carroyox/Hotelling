@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Hotelling
 {
-    public partial class Masterpage : System.Web.UI.MasterPage
+    public partial class MASTERPAGE : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
