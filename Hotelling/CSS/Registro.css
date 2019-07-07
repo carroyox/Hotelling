@@ -1,4 +1,23 @@
 ﻿body {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    background: #181818;
+    color: #fff;
+    overflow: hidden;
+    margin: 0;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+#left {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
 }
 
 .Container {
@@ -12,19 +31,24 @@
     border-right: solid .4rem #A9BAD7;
 }
 
-.form-top {
-    width: 100%;
-    text-align: center;
-    padding: 2rem 0 1rem;
-    border-top: solid .4rem #A9BAD7;
-    margin-bottom: 1rem;
+    .Container .form-top {
+        width: 100%;
+        text-align: center;
+        padding: 2rem 0 1rem;
+        border-top: solid .4rem #A9BAD7;
+        margin-bottom: 1rem;
+    }
+
+        .Container .form-top h2 {
+            font-weight: bold;
+            color: #cac8c8;
+            font-size: 18px;
+        }
+
+#right {
+    flex: 1;
 }
 
-.form-top h2 {
-   font-weight: bold;
-   color: #cac8c8;
-   font-size: 18px;
-}
 
 .form-reg {
     padding: 0 2rem;
@@ -48,9 +72,9 @@
     transition: all .5s;
 }
 
- .input:focus {
-    border-bottom: solid #7AEE61 .2rem;
- }
+    .input:focus {
+        border-bottom: solid #7AEE61 .2rem;
+    }
 
 .btn-submit, .btn-reset {
     width: 40%;
@@ -69,22 +93,4 @@
 
 .btn-reset:hover {
     background-color: #F5B1EC;
-}
-
-.caja {
-    margin: 20px auto 40px auto;
-    border: 1px solid #d9d9d9;
-    height: 30px;
-    overflow: hidden;
-    width: 230px;
-    position:center;
-}
-
-select {
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    height: 30px;
-    padding: 5px;
-    width: 250px;
 }

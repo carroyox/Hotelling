@@ -1,39 +1,25 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Masterpage.master.cs" Inherits="Hotelling.Masterpage" %>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head runat="server">
     <title>Hotelling</title>
     <link href="CSS/HojaEstilos.css" rel="stylesheet" />
-      <link rel="icon" type="image/png" sizes="32x32" href="Images/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/icon.png">
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+      
 
-        <%--<nav>
-            <ul>
-                <li><a href = "#"> Contacto</a></li>
-                <li><a href = "#"> Asientos</a></li>
-                <li><a href = "#"> Oficinas</a></li>
-                <li><a href = "Usuarios.aspx"> Usuarios</a></li>
-            </ul>
-        </nav>
-        <div class = "Social-Bar">
-            <img src = "Images/facebook.png" class = "icon icon-facebook"></>
-            <img src = "Images/Instagram.png" class = "icon icon-instagram"></>
-            <img src = "Images/youtube.png" class = "icon icon-youtube"></>
-        </div>--%>
+  
 
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <%--<footer>
-        <p>Copyright &copy; 2019 UAM - Universidad Americana . Todos los derechos reservados.</p>
-        </footer>--%>
+    
     </form>
 </body>
 </html>

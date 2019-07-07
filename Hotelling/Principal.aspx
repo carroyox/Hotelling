@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="Principal.aspx.cs" Inherits="Hotelling.Principal" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="CSS/HojaEstilos.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <nav>
@@ -17,6 +16,7 @@
          </div>
 
         </nav>
+
         <div class = "Social-Bar">
             <img src = "Images/facebook.png" class = "icon icon-facebook"></>
             <img src = "Images/Instagram.png" class = "icon icon-instagram"></>
