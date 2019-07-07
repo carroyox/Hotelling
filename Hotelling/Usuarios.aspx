@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="CSS/Registro.css" rel="stylesheet" />
     <title>Formulario Registro</title>
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -62,7 +64,7 @@
                                             <td>c.r.username</td>
                                             <td>c.r.use@outlook.com</td>
                                             <td>
-                                                <a href="#"><i class="fas fa-edit"></i></a><a href="#"><i class="fas fa-user-times"></i></a>
+                                                <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -72,8 +74,7 @@
                                             <td>c.r.username</td>
                                             <td>c.r.username@gmail.com</td>
                                             <td>
-                                                <a href="#"><i class="fas fa-edit"></i></a>| 
-		<a href="#"><i class="fas fa-user-times"></i></a>
+                                               <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
                                             </td>
                                         </tr>
 

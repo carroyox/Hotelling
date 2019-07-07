@@ -1,18 +1,13 @@
 ﻿body {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
-    background: #181818;
-    color: #fff;
-    overflow: hidden;
-    margin: 0;
+
 }
 
-#wrapper {
+.wrapper {
     display: flex;
     flex-direction: row;
 }
 
-#left {
+.left {
     flex: 1;
     flex-direction: column;
     align-items: center;
@@ -45,7 +40,7 @@
             font-size: 18px;
         }
 
-#right {
+.right {
     flex: 1;
 }
 
@@ -94,3 +89,85 @@
 .btn-reset:hover {
     background-color: #F5B1EC;
 }
+
+
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.table .thead-light th {
+    color: #495057;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+
+.table {
+    border-collapse: collapse !important;
+}
+
+    .table td,
+    .table th {
+        background-color: #fff !important;
+    }
+
+
