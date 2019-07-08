@@ -9,6 +9,7 @@ namespace Hotelling
 {
     public partial class Usuarios : System.Web.UI.Page
     {
+        List<string[]> lista = new List<string[]>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,7 +17,9 @@ namespace Hotelling
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
+            string[] list = {tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text };
+            lista.Add(list);
+            
         }
     }
 }

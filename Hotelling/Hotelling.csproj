@@ -70,6 +70,7 @@
     <Content Include="Asientos.aspx" />
     <Content Include="CSS\CE404.css" />
     <Content Include="CSS\HojaEstilos.css" />
+    <Content Include="CSS\jquery.dataTables.min.css" />
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleLogin.css" />
     <Content Include="error.aspx" />
@@ -84,10 +85,12 @@
     <Content Include="Images\Instagram.png" />
     <Content Include="Images\youtube.png" />
     <Content Include="JavaScript\login.js" />
-    <Content Include="JavaScript\test404.js" />
+    <Content Include="JavaScript\jquery-3.4.1.min.js" />
+    <Content Include="JavaScript\jquery.dataTables.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Oficinas.aspx" />
     <Content Include="Principal.aspx" />
+    <Content Include="sa.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -135,6 +138,13 @@
       <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sa.aspx.cs">
+      <DependentUpon>sa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sa.aspx.designer.cs">
+      <DependentUpon>sa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +169,7 @@
       <Name>BL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
