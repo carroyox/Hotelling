@@ -19,8 +19,6 @@
                     <asp:TextBox ID="tbEmail" type="email" class="input" runat="server" placeholder="&#9993;Correo Electronico" required="true"></asp:TextBox>
                     <asp:TextBox ID="tbCel" type="tel" class="input" runat="server" placeholder="&#128241;Celular" required="true"></asp:TextBox>
                     <asp:TextBox ID="tbTelOfi" type="tel" class="input" runat="server" placeholder="&#128222;Telefono Oficina" required="true"></asp:TextBox>
-
-
                     <div class="btn-form">
                         <asp:Button ID="btnSave" class="btn-submit" runat="server" Text="Guardar" OnClick="btnSave_Click" />
 
