@@ -1,5 +1,4 @@
 ﻿body {
-
 }
 
 .wrapper {
@@ -11,7 +10,6 @@
     flex: 1;
     flex-direction: column;
     align-items: center;
-    
     justify-content: center;
 }
 
@@ -24,7 +22,7 @@
     border-bottom: solid .4rem #A9BAD7;
     border-left: solid .4rem #A9BAD7;
     border-right: solid .4rem #A9BAD7;
-        border-radius: 0.25rem;
+    border-radius: 0.25rem;
 }
 
     .Container .form-top {
@@ -32,7 +30,6 @@
         text-align: center;
         padding: 2rem 0 1rem;
         border-top: solid .4rem #A9BAD7;
-     
     }
 
         .Container .form-top h2 {
@@ -92,17 +89,118 @@
 }
 
 
-
 .card {
-    max-width: 1000px;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    max-width: 850px;
     margin-top: 13%;
-    margin-left: 2%;
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+  
+}
+
+    .table-responsive > .table-bordered {
+        border: 0;
+    }
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table tbody + tbody {
+        border-top: 2px solid #dee2e6;
+    }
+
+    .table .table {
+        background-color: #fff;
+    }
+
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid #dee2e6;
+    }
+
+    .table-bordered thead th,
+    .table-bordered thead td {
+        border-bottom-width: 2px;
+    }
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table .thead-light th {
+    color: #495057;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+   
+
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 
+h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
 
+.lbSearch {
+    margin-left: 28.5rem;
+}
 
-
-
-
-
+    .lbSearch .tbSearch {
+        margin-left: 1rem;
+    }
