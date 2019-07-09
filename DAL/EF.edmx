@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_HotellingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Asientos">
+          <Key>
+            <PropertyRef Name="Id_Asiento" />
+          </Key>
+          <Property Name="Id_Asiento" Type="int" Nullable="false" />
+          <Property Name="Id_oficina" Type="int" Nullable="false" />
+          <Property Name="Es_Fijo" Type="bit" Nullable="false" />
+          <Property Name="Tiene_Telefono" Type="bit" Nullable="false" />
+          <Property Name="Tiene_Monitor" Type="bit" Nullable="false" />
+          <Property Name="Tiene_Teclado_Mouse" Type="bit" Nullable="false" />
+          <Property Name="Es_Especial" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_AsignacionAsientos">
+          <Key>
+            <PropertyRef Name="Id_Asiento" />
+          </Key>
+          <Property Name="Id_Asiento" Type="int" Nullable="false" />
+          <Property Name="Id_usuario" Type="int" Nullable="false" />
+          <Property Name="Fecha_Inicio" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_Final" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Oficinas">
+          <Key>
+            <PropertyRef Name="Id_Oficina" />
+          </Key>
+          <Property Name="Id_Oficina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Oficina" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Dirreccion_Oficina" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Email_Oficina" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Telefono_Oficina" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Numero_Asientos" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Perfiles">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+          </Key>
+          <Property Name="Id_Perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Perfil" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Permisos" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Identificacion_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email_Usuario" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Telefono_Personal" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telefono_Oficina" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Id_Oficina" Type="int" Nullable="false" />
+          <Property Name="Id_Perfil" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Usuarios_Oficinas_Id_oficina">
+          <End Role="Tbl_Oficinas" Type="Self.Tbl_Oficinas" Multiplicity="1" />
+          <End Role="Tbl_Usuarios" Type="Self.Tbl_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oficinas">
+              <PropertyRef Name="Id_Oficina" />
+            </Principal>
+            <Dependent Role="Tbl_Usuarios">
+              <PropertyRef Name="Id_Oficina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Perfiles_Id_Perfil">
+          <End Role="Tbl_Perfiles" Type="Self.Tbl_Perfiles" Multiplicity="1" />
+          <End Role="Tbl_Usuarios" Type="Self.Tbl_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Perfiles">
+              <PropertyRef Name="Id_Perfil" />
+            </Principal>
+            <Dependent Role="Tbl_Usuarios">
+              <PropertyRef Name="Id_Perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DB_HotellingModelStoreContainer">
+          <EntitySet Name="Tbl_Asientos" EntityType="Self.Tbl_Asientos" Schema="SCH_General" store:Type="Tables" />
+          <EntitySet Name="Tbl_AsignacionAsientos" EntityType="Self.Tbl_AsignacionAsientos" Schema="SCH_General" store:Type="Tables" />
+          <EntitySet Name="Tbl_Oficinas" EntityType="Self.Tbl_Oficinas" Schema="SCH_General" store:Type="Tables" />
+          <EntitySet Name="Tbl_Perfiles" EntityType="Self.Tbl_Perfiles" Schema="SCH_General" store:Type="Tables" />
+          <EntitySet Name="Tbl_Usuarios" EntityType="Self.Tbl_Usuarios" Schema="SCH_General" store:Type="Tables" />
+          <AssociationSet Name="FK_Usuarios_Oficinas_Id_oficina" Association="Self.FK_Usuarios_Oficinas_Id_oficina">
+            <End Role="Tbl_Oficinas" EntitySet="Tbl_Oficinas" />
+            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Perfiles_Id_Perfil" Association="Self.FK_Usuarios_Perfiles_Id_Perfil">
+            <End Role="Tbl_Perfiles" EntitySet="Tbl_Perfiles" />
+            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_HotellingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Asientos">
+          <Key>
+            <PropertyRef Name="Id_Asiento" />
+          </Key>
+          <Property Name="Id_Asiento" Type="Int32" Nullable="false" />
+          <Property Name="Id_oficina" Type="Int32" Nullable="false" />
+          <Property Name="Es_Fijo" Type="Boolean" Nullable="false" />
+          <Property Name="Tiene_Telefono" Type="Boolean" Nullable="false" />
+          <Property Name="Tiene_Monitor" Type="Boolean" Nullable="false" />
+          <Property Name="Tiene_Teclado_Mouse" Type="Boolean" Nullable="false" />
+          <Property Name="Es_Especial" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_AsignacionAsientos">
+          <Key>
+            <PropertyRef Name="Id_Asiento" />
+          </Key>
+          <Property Name="Id_Asiento" Type="Int32" Nullable="false" />
+          <Property Name="Id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fecha_Final" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_Oficinas">
+          <Key>
+            <PropertyRef Name="Id_Oficina" />
+          </Key>
+          <Property Name="Id_Oficina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Oficina" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dirreccion_Oficina" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email_Oficina" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono_Oficina" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Numero_Asientos" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tbl_Usuarios" Relationship="Self.FK_Usuarios_Oficinas_Id_oficina" FromRole="Tbl_Oficinas" ToRole="Tbl_Usuarios" />
+        </EntityType>
+        <EntityType Name="Tbl_Perfiles">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+          </Key>
+          <Property Name="Id_Perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Perfil" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Permisos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tbl_Usuarios" Relationship="Self.FK_Usuarios_Perfiles_Id_Perfil" FromRole="Tbl_Perfiles" ToRole="Tbl_Usuarios" />
+        </EntityType>
+        <EntityType Name="Tbl_Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Identificacion_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email_Usuario" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono_Personal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono_Oficina" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Oficina" Type="Int32" Nullable="false" />
+          <Property Name="Id_Perfil" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tbl_Oficinas" Relationship="Self.FK_Usuarios_Oficinas_Id_oficina" FromRole="Tbl_Usuarios" ToRole="Tbl_Oficinas" />
+          <NavigationProperty Name="Tbl_Perfiles" Relationship="Self.FK_Usuarios_Perfiles_Id_Perfil" FromRole="Tbl_Usuarios" ToRole="Tbl_Perfiles" />
+        </EntityType>
+        <Association Name="FK_Usuarios_Oficinas_Id_oficina">
+          <End Role="Tbl_Oficinas" Type="Self.Tbl_Oficinas" Multiplicity="1" />
+          <End Role="Tbl_Usuarios" Type="Self.Tbl_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oficinas">
+              <PropertyRef Name="Id_Oficina" />
+            </Principal>
+            <Dependent Role="Tbl_Usuarios">
+              <PropertyRef Name="Id_Oficina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Perfiles_Id_Perfil">
+          <End Role="Tbl_Perfiles" Type="Self.Tbl_Perfiles" Multiplicity="1" />
+          <End Role="Tbl_Usuarios" Type="Self.Tbl_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Perfiles">
+              <PropertyRef Name="Id_Perfil" />
+            </Principal>
+            <Dependent Role="Tbl_Usuarios">
+              <PropertyRef Name="Id_Perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_HotellingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Asientos" EntityType="Self.Tbl_Asientos" />
+          <EntitySet Name="Tbl_AsignacionAsientos" EntityType="Self.Tbl_AsignacionAsientos" />
+          <EntitySet Name="Tbl_Oficinas" EntityType="Self.Tbl_Oficinas" />
+          <EntitySet Name="Tbl_Perfiles" EntityType="Self.Tbl_Perfiles" />
+          <EntitySet Name="Tbl_Usuarios" EntityType="Self.Tbl_Usuarios" />
+          <AssociationSet Name="FK_Usuarios_Oficinas_Id_oficina" Association="Self.FK_Usuarios_Oficinas_Id_oficina">
+            <End Role="Tbl_Oficinas" EntitySet="Tbl_Oficinas" />
+            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Perfiles_Id_Perfil" Association="Self.FK_Usuarios_Perfiles_Id_Perfil">
+            <End Role="Tbl_Perfiles" EntitySet="Tbl_Perfiles" />
+            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DB_HotellingModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DB_HotellingModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_HotellingModelStoreContainer" CdmEntityContainer="DB_HotellingEntities">
+          <EntitySetMapping Name="Tbl_Asientos">
+            <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_Asientos">
+              <MappingFragment StoreEntitySet="Tbl_Asientos">
+                <ScalarProperty Name="Id_Asiento" ColumnName="Id_Asiento" />
+                <ScalarProperty Name="Id_oficina" ColumnName="Id_oficina" />
+                <ScalarProperty Name="Es_Fijo" ColumnName="Es_Fijo" />
+                <ScalarProperty Name="Tiene_Telefono" ColumnName="Tiene_Telefono" />
+                <ScalarProperty Name="Tiene_Monitor" ColumnName="Tiene_Monitor" />
+                <ScalarProperty Name="Tiene_Teclado_Mouse" ColumnName="Tiene_Teclado_Mouse" />
+                <ScalarProperty Name="Es_Especial" ColumnName="Es_Especial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_AsignacionAsientos">
+            <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_AsignacionAsientos">
+              <MappingFragment StoreEntitySet="Tbl_AsignacionAsientos">
+                <ScalarProperty Name="Id_Asiento" ColumnName="Id_Asiento" />
+                <ScalarProperty Name="Id_usuario" ColumnName="Id_usuario" />
+                <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+                <ScalarProperty Name="Fecha_Final" ColumnName="Fecha_Final" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Oficinas">
+            <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_Oficinas">
+              <MappingFragment StoreEntitySet="Tbl_Oficinas">
+                <ScalarProperty Name="Id_Oficina" ColumnName="Id_Oficina" />
+                <ScalarProperty Name="Nombre_Oficina" ColumnName="Nombre_Oficina" />
+                <ScalarProperty Name="Dirreccion_Oficina" ColumnName="Dirreccion_Oficina" />
+                <ScalarProperty Name="Email_Oficina" ColumnName="Email_Oficina" />
+                <ScalarProperty Name="Telefono_Oficina" ColumnName="Telefono_Oficina" />
+                <ScalarProperty Name="Numero_Asientos" ColumnName="Numero_Asientos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Perfiles">
+            <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_Perfiles">
+              <MappingFragment StoreEntitySet="Tbl_Perfiles">
+                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+                <ScalarProperty Name="Nombre_Perfil" ColumnName="Nombre_Perfil" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Permisos" ColumnName="Permisos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Usuarios">
+            <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_Usuarios">
+              <MappingFragment StoreEntitySet="Tbl_Usuarios">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
+                <ScalarProperty Name="Apellido_Usuario" ColumnName="Apellido_Usuario" />
+                <ScalarProperty Name="Identificacion_Usuario" ColumnName="Identificacion_Usuario" />
+                <ScalarProperty Name="Email_Usuario" ColumnName="Email_Usuario" />
+                <ScalarProperty Name="Telefono_Personal" ColumnName="Telefono_Personal" />
+                <ScalarProperty Name="Telefono_Oficina" ColumnName="Telefono_Oficina" />
+                <ScalarProperty Name="Id_Oficina" ColumnName="Id_Oficina" />
+                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DB_HotellingModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DB_HotellingModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DB_HotellingModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DB_HotellingModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_HotellingModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DB_HotellingModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_HotellingModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DB_HotellingModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DB_HotellingModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

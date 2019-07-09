@@ -18,7 +18,20 @@
                     <asp:TextBox ID="tbID" type="text" class="input" runat="server" placeholder="&#127380;Identificacion" required="true"></asp:TextBox>
                     <asp:TextBox ID="tbEmail" type="email" class="input" runat="server" placeholder="&#9993;Correo Electronico" required="true"></asp:TextBox>
                     <asp:TextBox ID="tbCel" type="tel" class="input" runat="server" placeholder="&#128241;Celular" required="true"></asp:TextBox>
-                    <asp:TextBox ID="tbTelOfi" type="tel" class="input" runat="server" placeholder="&#128222;Telefono Oficina" required="true"></asp:TextBox>
+                    <asp:TextBox ID="tbTelOfi" type="tel" class="input" runat="server" placeholder="&#128222;Telefono Oficina" required="true"></asp:TextBox>   <%--extencion--%>
+                 
+                 
+
+                        <asp:DropDownList ID="cbOfi" runat="server" required="true"></asp:DropDownList>
+                    
+                    
+
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                    
+                    
+
+                    <%--  IdOficina--%>
+                    <%--  IdPerfil--%>
                     <div class="btn-form">
                         <asp:Button ID="btnSave" class="btn-submit" runat="server" Text="Guardar" OnClick="btnSave_Click" />
 
@@ -33,7 +46,7 @@
 
             <div class="tab-pane" id="list" role="tabpanel" aria-labelledby="list-tab">
                 <div class="card">
-                   
+
                     <div class="card-header">
                         <h4>Active Users 
                             <asp:Label class="lbSearch" runat="server" Text="Search">
@@ -67,7 +80,7 @@
                                     <asp:TableCell ID="TableCell9" runat="server">c.r.username</asp:TableCell>
                                     <asp:TableCell ID="TableCell10" runat="server">username@hotmail.com</asp:TableCell>
                                 </asp:TableRow>
-                               
+
 
                             </asp:Table>
                         </div>
