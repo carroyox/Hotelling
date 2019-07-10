@@ -8,21 +8,28 @@ using DAL;
 
 namespace BL
 {
-    public class Reference 
+    public class Reference
     {
-        public Reference() {
-            
-                }
+        public Reference()
+        {
+            IList<Tbl_Oficinas> studentList = new List<Tbl_Oficinas>() {
+                new Tbl_Oficinas() { Nombre_Oficina="SJ", Dirreccion_Oficina="adasdadasd", Email_Oficina="cesar_arroyo64@hotmail.com"} ,
+               
+            };
 
-    
 
-        public void Retorno() {
-          
-
-            
-
-            
         }
+
+
+        public int Id_Oficina { get; set; }
+        public string Nombre_Oficina { get; set; }
+        public string Dirreccion_Oficina { get; set; }
+        public string Email_Oficina { get; set; }
+        public string Telefono_Oficina { get; set; }
+        public int Numero_Asientos { get; set; }
+
+
+
 
 
     }
