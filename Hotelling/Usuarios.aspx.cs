@@ -23,13 +23,20 @@ namespace Hotelling
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            string[] item = { tbID.Text, tbName.Text, tbLastName.Text, tbCel.Text, tbEmail.Text };
-            lista.Add(item);
-            list();
+            Reference nueva = new Reference();
+            nueva.salvar( tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text, tbCel.Text, tbCel.Text);
         }
 
         protected void list()
         {
+            string[] item = { tbID.Text, tbName.Text, tbLastName.Text, tbCel.Text, tbEmail.Text };
+            lista.Add(item);
+            list();
+
+
+
+
+
             TableRow row = new TableRow();
             foreach (string[] g in lista)
             {

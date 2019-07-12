@@ -50,71 +50,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF.Context.cs">
+    <Compile Include="EFH.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EF.Context.tt</DependentUpon>
+      <DependentUpon>EFH.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF.cs">
+    <Compile Include="EFH.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EF.tt</DependentUpon>
+      <DependentUpon>EFH.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF.Designer.cs">
+    <Compile Include="EFH.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EF.edmx</DependentUpon>
+      <DependentUpon>EFH.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>EF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>EF.tt</DependentUpon>
-    </Compile>
     <Compile Include="Tbl_Asientos.cs">
-      <DependentUpon>EF.tt</DependentUpon>
+      <DependentUpon>EFH.tt</DependentUpon>
     </Compile>
     <Compile Include="Tbl_AsignacionAsientos.cs">
-      <DependentUpon>EF.tt</DependentUpon>
+      <DependentUpon>EFH.tt</DependentUpon>
     </Compile>
     <Compile Include="Tbl_Oficinas.cs">
-      <DependentUpon>EF.tt</DependentUpon>
+      <DependentUpon>EFH.tt</DependentUpon>
     </Compile>
     <Compile Include="Tbl_Perfiles.cs">
-      <DependentUpon>EF.tt</DependentUpon>
+      <DependentUpon>EFH.tt</DependentUpon>
     </Compile>
     <Compile Include="Tbl_Usuarios.cs">
-      <DependentUpon>EF.tt</DependentUpon>
+      <DependentUpon>EFH.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="EF.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EF.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="EF.edmx.diagram">
-      <DependentUpon>EF.edmx</DependentUpon>
+    <EntityDeploy Include="EFH.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EFH.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EFH.edmx.diagram">
+      <DependentUpon>EFH.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EF.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EF.Context.cs</LastGenOutput>
-      <DependentUpon>EF.edmx</DependentUpon>
-    </Content>
-    <Content Include="EF.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EF.edmx</DependentUpon>
-      <LastGenOutput>EF.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="EFH.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFH.edmx</DependentUpon>
+      <LastGenOutput>EFH.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EFH.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFH.edmx</DependentUpon>
+      <LastGenOutput>EFH.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,23 +10,18 @@ namespace BL
 {
     public class Reference
     {
+        test nuevo = new test();
         public Reference()
         {
-            IList<Tbl_Oficinas> studentList = new List<Tbl_Oficinas>() {
-                new Tbl_Oficinas() { Nombre_Oficina="SJ", Dirreccion_Oficina="adasdadasd", Email_Oficina="cesar_arroyo64@hotmail.com"} ,
-               
-            };
-
 
         }
 
+        public void salvar(String tbName, String tbLastName, String tbID, String tbEmail, String tbCel, String tbCel2)
+        {
+            nuevo.saar( tbName,  tbLastName,  tbID,  tbEmail,  tbCel, tbCel2);
 
-        public int Id_Oficina { get; set; }
-        public string Nombre_Oficina { get; set; }
-        public string Dirreccion_Oficina { get; set; }
-        public string Email_Oficina { get; set; }
-        public string Telefono_Oficina { get; set; }
-        public int Numero_Asientos { get; set; }
+        }
+
 
 
 
