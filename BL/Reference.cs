@@ -10,15 +10,32 @@ namespace BL
 {
     public class Reference
     {
-        test nuevo = new test();
+      
         public Reference()
         {
 
         }
 
-        public void salvar(String tbName, String tbLastName, String tbID, String tbEmail, String tbCel, String tbCel2)
+        public void Save(String tbName, String tbLastName, String tbID, String tbEmail, String tbCel, String tbCel2)
         {
-            nuevo.saar( tbName,  tbLastName,  tbID,  tbEmail,  tbCel, tbCel2);
+            using (HotellingCon context = new HotellingCon())
+            {
+                var std = new Tbl_Usuarios()
+                {
+                    Nombre_Usuario = tbName,
+                    Apellido_Usuario = tbLastName,
+                    Identificacion_Usuario = tbID,
+                    Email_Usuario = tbEmail,
+                    Telefono_Personal = tbCel,
+                    Telefono_Oficina = tbCel2,
+                    Id_Oficina = 1,
+                    Id_Perfil = 1
+                };
+
+
+                context.Tbl_Usuarios.Add(std);
+                context.SaveChanges();
+            }
 
         }
 

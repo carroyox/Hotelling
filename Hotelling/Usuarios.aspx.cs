@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BL;
+using Hotelling.UserApiSave;
 
 namespace Hotelling
 {
@@ -23,8 +23,10 @@ namespace Hotelling
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Reference nueva = new Reference();
-            nueva.salvar( tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text, tbCel.Text, tbCel.Text);
+            UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
+
+            API.Save(tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text, tbCel.Text, tbCel.Text);
+            
         }
 
         protected void list()

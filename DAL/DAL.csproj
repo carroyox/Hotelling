@@ -81,7 +81,6 @@
     <Compile Include="Tbl_Usuarios.cs">
       <DependentUpon>EFH.tt</DependentUpon>
     </Compile>
-    <Compile Include="test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

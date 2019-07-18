@@ -50,6 +50,8 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -74,6 +76,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Asientos.aspx" />
+    <Content Include="Connected Services\UserApiSave\Hotelling.UserApiSave.SaveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\UserApiSave\UserAPI.disco" />
+    <None Include="Connected Services\UserApiSave\configuration91.svcinfo" />
+    <None Include="Connected Services\UserApiSave\configuration.svcinfo" />
+    <None Include="Connected Services\UserApiSave\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="CSS\CE404.css" />
     <Content Include="CSS\HojaEstilos.css" />
     <Content Include="CSS\Registro.css" />
@@ -103,6 +115,11 @@
     </Compile>
     <Compile Include="Asientos.aspx.designer.cs">
       <DependentUpon>Asientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UserApiSave\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
@@ -150,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Masterpage.Master" />
+    <None Include="Connected Services\UserApiSave\UserAPI.wsdl" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -159,12 +177,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BL\BL.csproj">
-      <Project>{f17348fd-2c2d-4f7c-b652-5bac02975748}</Project>
-      <Name>BL</Name>
-    </ProjectReference>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\UserApiSave\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
