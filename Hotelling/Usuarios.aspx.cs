@@ -25,7 +25,7 @@ namespace Hotelling
         {
             UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
 
-            API.Save(tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text, tbCel.Text, tbCel.Text);
+            //API.Save(tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text, tbCel.Text, tbCel.Text);
             
         }
 

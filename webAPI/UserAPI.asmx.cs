@@ -21,10 +21,10 @@ namespace webAPI
     {
 
         [WebMethod]
-        public void Save(String a, String b, String c, String d, String e, String f)
+        public void Save(Object item, char c)
         {
             Reference nuevo = new Reference() { };
-            nuevo.Save(a, b, c, d, e, f);
+            
         }
     }
 }

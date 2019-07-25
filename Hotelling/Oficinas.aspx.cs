@@ -13,5 +13,14 @@ namespace Hotelling
         {
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
+
+            //API.Save(tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text, tbCel.Text, tbCel.Text);
+
+
+        }
     }
 }

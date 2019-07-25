@@ -16,7 +16,7 @@ namespace BL
 
         }
 
-        public void Save(String tbName, String tbLastName, String tbID, String tbEmail, String tbCel, String tbCel2)
+        public void SaveUser(String tbName, String tbLastName, String tbID, String tbEmail, String tbCel, String tbCel2)
         {
             using (HotellingCon context = new HotellingCon())
             {
