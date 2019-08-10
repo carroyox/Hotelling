@@ -21,24 +21,21 @@ namespace Hotelling
             }
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
-        {
+        protected void btnSave_Click(object sender, EventArgs e){
+
+           
+            ArrayOfString datos = new ArrayOfString { "User", tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text, tbCel.Text, tbCel.Text };
             UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
 
-            //API.Save(tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text, tbCel.Text, tbCel.Text);
-            
+            API.Save(datos);
         }
+
 
         protected void list()
         {
             string[] item = { tbID.Text, tbName.Text, tbLastName.Text, tbCel.Text, tbEmail.Text };
             lista.Add(item);
             list();
-
-
-
-
-
             TableRow row = new TableRow();
             foreach (string[] g in lista)
             {

@@ -5,13 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="04656fe7755d44908dd3daf4acee6f91" Name="Diagram1">
-        <EntityTypeShape EntityType="DB_HotellingModel.Tbl_Asientos" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_HotellingModel.Tbl_AsignacionAsientos" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_HotellingModel.Tbl_Oficinas" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_HotellingModel.Tbl_Perfiles" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_HotellingModel.Tbl_Usuarios" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="DB_HotellingModel.FK_Usuarios_Oficinas_Id_oficina" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_HotellingModel.FK_Usuarios_Perfiles_Id_Perfil" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_HotellingModel.Tbl_Asientos" Width="1.5" PointX="5" PointY="4.75" />
+        <EntityTypeShape EntityType="DB_HotellingModel.Tbl_AsignacionAsientos" Width="1.5" PointX="7.25" PointY="3" />
+        <EntityTypeShape EntityType="DB_HotellingModel.Tbl_Oficinas" Width="1.5" PointX="2.75" PointY="3" />
+        <EntityTypeShape EntityType="DB_HotellingModel.Tbl_Usuarios" Width="1.5" PointX="5" PointY="0.875" />
+        <AssociationConnector Association="DB_HotellingModel.FK_Asientos_Oficinas_Id_oficina" />
+        <AssociationConnector Association="DB_HotellingModel.FK_AsignacionAsientos_Asientos_Id_Asiento" />
+        <AssociationConnector Association="DB_HotellingModel.FK_AsignacionAsientos_Usuarios_Id_Usuario" />
+        <AssociationConnector Association="DB_HotellingModel.FK_Usuarios_Oficinas_Id_oficina" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

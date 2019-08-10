@@ -14,17 +14,24 @@ namespace DAL
     
     public partial class Tbl_Usuarios
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tbl_Usuarios()
+        {
+            this.Tbl_AsignacionAsientos = new HashSet<Tbl_AsignacionAsientos>();
+        }
+    
         public int Id_Usuario { get; set; }
         public string Nombre_Usuario { get; set; }
         public string Apellido_Usuario { get; set; }
         public string Identificacion_Usuario { get; set; }
         public string Email_Usuario { get; set; }
         public string Telefono_Personal { get; set; }
-        public string Telefono_Oficina { get; set; }
+        public string Telefono_Extension { get; set; }
         public int Id_Oficina { get; set; }
-        public int Id_Perfil { get; set; }
+        public string Id_Perfil { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_AsignacionAsientos> Tbl_AsignacionAsientos { get; set; }
         public virtual Tbl_Oficinas Tbl_Oficinas { get; set; }
-        public virtual Tbl_Perfiles Tbl_Perfiles { get; set; }
     }
 }

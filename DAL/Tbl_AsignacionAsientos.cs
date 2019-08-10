@@ -15,8 +15,12 @@ namespace DAL
     public partial class Tbl_AsignacionAsientos
     {
         public int Id_Asiento { get; set; }
-        public int Id_usuario { get; set; }
+        public int Id_Usuario { get; set; }
         public System.DateTime Fecha_Inicio { get; set; }
         public System.DateTime Fecha_Final { get; set; }
+        public int Asignacion_Asiento { get; set; }
+    
+        public virtual Tbl_Asientos Tbl_Asientos { get; set; }
+        public virtual Tbl_Usuarios Tbl_Usuarios { get; set; }
     }
 }

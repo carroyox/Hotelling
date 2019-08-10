@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_HotellingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_HotellingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Tbl_Asientos">
           <Key>
             <PropertyRef Name="Id_Asiento" />
           </Key>
-          <Property Name="Id_Asiento" Type="int" Nullable="false" />
+          <Property Name="Id_Asiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_oficina" Type="int" Nullable="false" />
           <Property Name="Es_Fijo" Type="bit" Nullable="false" />
           <Property Name="Tiene_Telefono" Type="bit" Nullable="false" />
@@ -19,12 +19,13 @@
         </EntityType>
         <EntityType Name="Tbl_AsignacionAsientos">
           <Key>
-            <PropertyRef Name="Id_Asiento" />
+            <PropertyRef Name="Asignacion_Asiento" />
           </Key>
           <Property Name="Id_Asiento" Type="int" Nullable="false" />
-          <Property Name="Id_usuario" Type="int" Nullable="false" />
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
           <Property Name="Fecha_Inicio" Type="datetime" Nullable="false" />
           <Property Name="Fecha_Final" Type="datetime" Nullable="false" />
+          <Property Name="Asignacion_Asiento" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Oficinas">
           <Key>
@@ -32,19 +33,10 @@
           </Key>
           <Property Name="Id_Oficina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre_Oficina" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="Dirreccion_Oficina" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Direccion_Oficina" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Email_Oficina" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Telefono_Oficina" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Numero_Asientos" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Tbl_Perfiles">
-          <Key>
-            <PropertyRef Name="Id_Perfil" />
-          </Key>
-          <Property Name="Id_Perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre_Perfil" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="Permisos" Type="varchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Usuarios">
           <Key>
@@ -56,10 +48,46 @@
           <Property Name="Identificacion_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Email_Usuario" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Telefono_Personal" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Telefono_Oficina" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telefono_Extension" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Id_Oficina" Type="int" Nullable="false" />
-          <Property Name="Id_Perfil" Type="int" Nullable="false" />
+          <Property Name="Id_Perfil" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Asientos_Oficinas_Id_oficina">
+          <End Role="Tbl_Oficinas" Type="Self.Tbl_Oficinas" Multiplicity="1" />
+          <End Role="Tbl_Asientos" Type="Self.Tbl_Asientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oficinas">
+              <PropertyRef Name="Id_Oficina" />
+            </Principal>
+            <Dependent Role="Tbl_Asientos">
+              <PropertyRef Name="Id_oficina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AsignacionAsientos_Asientos_Id_Asiento">
+          <End Role="Tbl_Asientos" Type="Self.Tbl_Asientos" Multiplicity="1" />
+          <End Role="Tbl_AsignacionAsientos" Type="Self.Tbl_AsignacionAsientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Asientos">
+              <PropertyRef Name="Id_Asiento" />
+            </Principal>
+            <Dependent Role="Tbl_AsignacionAsientos">
+              <PropertyRef Name="Id_Asiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AsignacionAsientos_Usuarios_Id_Usuario">
+          <End Role="Tbl_Usuarios" Type="Self.Tbl_Usuarios" Multiplicity="1" />
+          <End Role="Tbl_AsignacionAsientos" Type="Self.Tbl_AsignacionAsientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="Tbl_AsignacionAsientos">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usuarios_Oficinas_Id_oficina">
           <End Role="Tbl_Oficinas" Type="Self.Tbl_Oficinas" Multiplicity="1" />
           <End Role="Tbl_Usuarios" Type="Self.Tbl_Usuarios" Multiplicity="*" />
@@ -69,18 +97,6 @@
             </Principal>
             <Dependent Role="Tbl_Usuarios">
               <PropertyRef Name="Id_Oficina" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Usuarios_Perfiles_Id_Perfil">
-          <End Role="Tbl_Perfiles" Type="Self.Tbl_Perfiles" Multiplicity="1" />
-          <End Role="Tbl_Usuarios" Type="Self.Tbl_Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_Perfiles">
-              <PropertyRef Name="Id_Perfil" />
-            </Principal>
-            <Dependent Role="Tbl_Usuarios">
-              <PropertyRef Name="Id_Perfil" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -88,84 +104,144 @@
           <EntitySet Name="Tbl_Asientos" EntityType="Self.Tbl_Asientos" Schema="SCH_General" store:Type="Tables" />
           <EntitySet Name="Tbl_AsignacionAsientos" EntityType="Self.Tbl_AsignacionAsientos" Schema="SCH_General" store:Type="Tables" />
           <EntitySet Name="Tbl_Oficinas" EntityType="Self.Tbl_Oficinas" Schema="SCH_General" store:Type="Tables" />
-          <EntitySet Name="Tbl_Perfiles" EntityType="Self.Tbl_Perfiles" Schema="SCH_General" store:Type="Tables" />
           <EntitySet Name="Tbl_Usuarios" EntityType="Self.Tbl_Usuarios" Schema="SCH_General" store:Type="Tables" />
+          <AssociationSet Name="FK_Asientos_Oficinas_Id_oficina" Association="Self.FK_Asientos_Oficinas_Id_oficina">
+            <End Role="Tbl_Oficinas" EntitySet="Tbl_Oficinas" />
+            <End Role="Tbl_Asientos" EntitySet="Tbl_Asientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AsignacionAsientos_Asientos_Id_Asiento" Association="Self.FK_AsignacionAsientos_Asientos_Id_Asiento">
+            <End Role="Tbl_Asientos" EntitySet="Tbl_Asientos" />
+            <End Role="Tbl_AsignacionAsientos" EntitySet="Tbl_AsignacionAsientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AsignacionAsientos_Usuarios_Id_Usuario" Association="Self.FK_AsignacionAsientos_Usuarios_Id_Usuario">
+            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
+            <End Role="Tbl_AsignacionAsientos" EntitySet="Tbl_AsignacionAsientos" />
+          </AssociationSet>
           <AssociationSet Name="FK_Usuarios_Oficinas_Id_oficina" Association="Self.FK_Usuarios_Oficinas_Id_oficina">
             <End Role="Tbl_Oficinas" EntitySet="Tbl_Oficinas" />
             <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK_Usuarios_Perfiles_Id_Perfil" Association="Self.FK_Usuarios_Perfiles_Id_Perfil">
-            <End Role="Tbl_Perfiles" EntitySet="Tbl_Perfiles" />
-            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_HotellingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HotellingCon" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Asientos" EntityType="DB_HotellingModel.Tbl_Asientos" />
+          <EntitySet Name="Tbl_AsignacionAsientos" EntityType="DB_HotellingModel.Tbl_AsignacionAsientos" />
+          <EntitySet Name="Tbl_Oficinas" EntityType="DB_HotellingModel.Tbl_Oficinas" />
+          <EntitySet Name="Tbl_Usuarios" EntityType="DB_HotellingModel.Tbl_Usuarios" />
+          <AssociationSet Name="FK_Asientos_Oficinas_Id_oficina" Association="DB_HotellingModel.FK_Asientos_Oficinas_Id_oficina">
+            <End Role="Tbl_Oficinas" EntitySet="Tbl_Oficinas" />
+            <End Role="Tbl_Asientos" EntitySet="Tbl_Asientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AsignacionAsientos_Asientos_Id_Asiento" Association="DB_HotellingModel.FK_AsignacionAsientos_Asientos_Id_Asiento">
+            <End Role="Tbl_Asientos" EntitySet="Tbl_Asientos" />
+            <End Role="Tbl_AsignacionAsientos" EntitySet="Tbl_AsignacionAsientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AsignacionAsientos_Usuarios_Id_Usuario" Association="DB_HotellingModel.FK_AsignacionAsientos_Usuarios_Id_Usuario">
+            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
+            <End Role="Tbl_AsignacionAsientos" EntitySet="Tbl_AsignacionAsientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Oficinas_Id_oficina" Association="DB_HotellingModel.FK_Usuarios_Oficinas_Id_oficina">
+            <End Role="Tbl_Oficinas" EntitySet="Tbl_Oficinas" />
+            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Tbl_Asientos">
           <Key>
             <PropertyRef Name="Id_Asiento" />
           </Key>
-          <Property Name="Id_Asiento" Type="Int32" Nullable="false" />
+          <Property Name="Id_Asiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_oficina" Type="Int32" Nullable="false" />
           <Property Name="Es_Fijo" Type="Boolean" Nullable="false" />
           <Property Name="Tiene_Telefono" Type="Boolean" Nullable="false" />
           <Property Name="Tiene_Monitor" Type="Boolean" Nullable="false" />
           <Property Name="Tiene_Teclado_Mouse" Type="Boolean" Nullable="false" />
           <Property Name="Es_Especial" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Tbl_Oficinas" Relationship="DB_HotellingModel.FK_Asientos_Oficinas_Id_oficina" FromRole="Tbl_Asientos" ToRole="Tbl_Oficinas" />
+          <NavigationProperty Name="Tbl_AsignacionAsientos" Relationship="DB_HotellingModel.FK_AsignacionAsientos_Asientos_Id_Asiento" FromRole="Tbl_Asientos" ToRole="Tbl_AsignacionAsientos" />
         </EntityType>
         <EntityType Name="Tbl_AsignacionAsientos">
           <Key>
-            <PropertyRef Name="Id_Asiento" />
+            <PropertyRef Name="Asignacion_Asiento" />
           </Key>
           <Property Name="Id_Asiento" Type="Int32" Nullable="false" />
-          <Property Name="Id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
           <Property Name="Fecha_Inicio" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Fecha_Final" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Asignacion_Asiento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tbl_Asientos" Relationship="DB_HotellingModel.FK_AsignacionAsientos_Asientos_Id_Asiento" FromRole="Tbl_AsignacionAsientos" ToRole="Tbl_Asientos" />
+          <NavigationProperty Name="Tbl_Usuarios" Relationship="DB_HotellingModel.FK_AsignacionAsientos_Usuarios_Id_Usuario" FromRole="Tbl_AsignacionAsientos" ToRole="Tbl_Usuarios" />
         </EntityType>
         <EntityType Name="Tbl_Oficinas">
           <Key>
             <PropertyRef Name="Id_Oficina" />
           </Key>
           <Property Name="Id_Oficina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre_Oficina" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Dirreccion_Oficina" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email_Oficina" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Telefono_Oficina" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_Oficina" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion_Oficina" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Oficina" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono_Oficina" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Numero_Asientos" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Tbl_Usuarios" Relationship="Self.FK_Usuarios_Oficinas_Id_oficina" FromRole="Tbl_Oficinas" ToRole="Tbl_Usuarios" />
-        </EntityType>
-        <EntityType Name="Tbl_Perfiles">
-          <Key>
-            <PropertyRef Name="Id_Perfil" />
-          </Key>
-          <Property Name="Id_Perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre_Perfil" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Permisos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Tbl_Usuarios" Relationship="Self.FK_Usuarios_Perfiles_Id_Perfil" FromRole="Tbl_Perfiles" ToRole="Tbl_Usuarios" />
+          <NavigationProperty Name="Tbl_Asientos" Relationship="DB_HotellingModel.FK_Asientos_Oficinas_Id_oficina" FromRole="Tbl_Oficinas" ToRole="Tbl_Asientos" />
+          <NavigationProperty Name="Tbl_Usuarios" Relationship="DB_HotellingModel.FK_Usuarios_Oficinas_Id_oficina" FromRole="Tbl_Oficinas" ToRole="Tbl_Usuarios" />
         </EntityType>
         <EntityType Name="Tbl_Usuarios">
           <Key>
             <PropertyRef Name="Id_Usuario" />
           </Key>
           <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Apellido_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Identificacion_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email_Usuario" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Telefono_Personal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Telefono_Oficina" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido_Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Identificacion_Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Usuario" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono_Personal" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono_Extension" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Id_Oficina" Type="Int32" Nullable="false" />
-          <Property Name="Id_Perfil" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Tbl_Oficinas" Relationship="Self.FK_Usuarios_Oficinas_Id_oficina" FromRole="Tbl_Usuarios" ToRole="Tbl_Oficinas" />
-          <NavigationProperty Name="Tbl_Perfiles" Relationship="Self.FK_Usuarios_Perfiles_Id_Perfil" FromRole="Tbl_Usuarios" ToRole="Tbl_Perfiles" />
+          <Property Name="Id_Perfil" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_AsignacionAsientos" Relationship="DB_HotellingModel.FK_AsignacionAsientos_Usuarios_Id_Usuario" FromRole="Tbl_Usuarios" ToRole="Tbl_AsignacionAsientos" />
+          <NavigationProperty Name="Tbl_Oficinas" Relationship="DB_HotellingModel.FK_Usuarios_Oficinas_Id_oficina" FromRole="Tbl_Usuarios" ToRole="Tbl_Oficinas" />
         </EntityType>
+        <Association Name="FK_Asientos_Oficinas_Id_oficina">
+          <End Type="DB_HotellingModel.Tbl_Oficinas" Role="Tbl_Oficinas" Multiplicity="1" />
+          <End Type="DB_HotellingModel.Tbl_Asientos" Role="Tbl_Asientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oficinas">
+              <PropertyRef Name="Id_Oficina" />
+            </Principal>
+            <Dependent Role="Tbl_Asientos">
+              <PropertyRef Name="Id_oficina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AsignacionAsientos_Asientos_Id_Asiento">
+          <End Type="DB_HotellingModel.Tbl_Asientos" Role="Tbl_Asientos" Multiplicity="1" />
+          <End Type="DB_HotellingModel.Tbl_AsignacionAsientos" Role="Tbl_AsignacionAsientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Asientos">
+              <PropertyRef Name="Id_Asiento" />
+            </Principal>
+            <Dependent Role="Tbl_AsignacionAsientos">
+              <PropertyRef Name="Id_Asiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AsignacionAsientos_Usuarios_Id_Usuario">
+          <End Type="DB_HotellingModel.Tbl_Usuarios" Role="Tbl_Usuarios" Multiplicity="1" />
+          <End Type="DB_HotellingModel.Tbl_AsignacionAsientos" Role="Tbl_AsignacionAsientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="Tbl_AsignacionAsientos">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usuarios_Oficinas_Id_oficina">
-          <End Role="Tbl_Oficinas" Type="Self.Tbl_Oficinas" Multiplicity="1" />
-          <End Role="Tbl_Usuarios" Type="Self.Tbl_Usuarios" Multiplicity="*" />
+          <End Type="DB_HotellingModel.Tbl_Oficinas" Role="Tbl_Oficinas" Multiplicity="1" />
+          <End Type="DB_HotellingModel.Tbl_Usuarios" Role="Tbl_Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Oficinas">
               <PropertyRef Name="Id_Oficina" />
@@ -175,34 +251,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Usuarios_Perfiles_Id_Perfil">
-          <End Role="Tbl_Perfiles" Type="Self.Tbl_Perfiles" Multiplicity="1" />
-          <End Role="Tbl_Usuarios" Type="Self.Tbl_Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_Perfiles">
-              <PropertyRef Name="Id_Perfil" />
-            </Principal>
-            <Dependent Role="Tbl_Usuarios">
-              <PropertyRef Name="Id_Perfil" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="HotellingCon" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Tbl_Asientos" EntityType="Self.Tbl_Asientos" />
-          <EntitySet Name="Tbl_AsignacionAsientos" EntityType="Self.Tbl_AsignacionAsientos" />
-          <EntitySet Name="Tbl_Oficinas" EntityType="Self.Tbl_Oficinas" />
-          <EntitySet Name="Tbl_Perfiles" EntityType="Self.Tbl_Perfiles" />
-          <EntitySet Name="Tbl_Usuarios" EntityType="Self.Tbl_Usuarios" />
-          <AssociationSet Name="FK_Usuarios_Oficinas_Id_oficina" Association="Self.FK_Usuarios_Oficinas_Id_oficina">
-            <End Role="Tbl_Oficinas" EntitySet="Tbl_Oficinas" />
-            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuarios_Perfiles_Id_Perfil" Association="Self.FK_Usuarios_Perfiles_Id_Perfil">
-            <End Role="Tbl_Perfiles" EntitySet="Tbl_Perfiles" />
-            <End Role="Tbl_Usuarios" EntitySet="Tbl_Usuarios" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -211,60 +260,51 @@
           <EntitySetMapping Name="Tbl_Asientos">
             <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_Asientos">
               <MappingFragment StoreEntitySet="Tbl_Asientos">
-                <ScalarProperty Name="Id_Asiento" ColumnName="Id_Asiento" />
-                <ScalarProperty Name="Id_oficina" ColumnName="Id_oficina" />
-                <ScalarProperty Name="Es_Fijo" ColumnName="Es_Fijo" />
-                <ScalarProperty Name="Tiene_Telefono" ColumnName="Tiene_Telefono" />
-                <ScalarProperty Name="Tiene_Monitor" ColumnName="Tiene_Monitor" />
-                <ScalarProperty Name="Tiene_Teclado_Mouse" ColumnName="Tiene_Teclado_Mouse" />
                 <ScalarProperty Name="Es_Especial" ColumnName="Es_Especial" />
+                <ScalarProperty Name="Tiene_Teclado_Mouse" ColumnName="Tiene_Teclado_Mouse" />
+                <ScalarProperty Name="Tiene_Monitor" ColumnName="Tiene_Monitor" />
+                <ScalarProperty Name="Tiene_Telefono" ColumnName="Tiene_Telefono" />
+                <ScalarProperty Name="Es_Fijo" ColumnName="Es_Fijo" />
+                <ScalarProperty Name="Id_oficina" ColumnName="Id_oficina" />
+                <ScalarProperty Name="Id_Asiento" ColumnName="Id_Asiento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tbl_AsignacionAsientos">
             <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_AsignacionAsientos">
               <MappingFragment StoreEntitySet="Tbl_AsignacionAsientos">
-                <ScalarProperty Name="Id_Asiento" ColumnName="Id_Asiento" />
-                <ScalarProperty Name="Id_usuario" ColumnName="Id_usuario" />
-                <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+                <ScalarProperty Name="Asignacion_Asiento" ColumnName="Asignacion_Asiento" />
                 <ScalarProperty Name="Fecha_Final" ColumnName="Fecha_Final" />
+                <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_Asiento" ColumnName="Id_Asiento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tbl_Oficinas">
             <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_Oficinas">
               <MappingFragment StoreEntitySet="Tbl_Oficinas">
-                <ScalarProperty Name="Id_Oficina" ColumnName="Id_Oficina" />
-                <ScalarProperty Name="Nombre_Oficina" ColumnName="Nombre_Oficina" />
-                <ScalarProperty Name="Dirreccion_Oficina" ColumnName="Dirreccion_Oficina" />
-                <ScalarProperty Name="Email_Oficina" ColumnName="Email_Oficina" />
-                <ScalarProperty Name="Telefono_Oficina" ColumnName="Telefono_Oficina" />
                 <ScalarProperty Name="Numero_Asientos" ColumnName="Numero_Asientos" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_Perfiles">
-            <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_Perfiles">
-              <MappingFragment StoreEntitySet="Tbl_Perfiles">
-                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
-                <ScalarProperty Name="Nombre_Perfil" ColumnName="Nombre_Perfil" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Permisos" ColumnName="Permisos" />
+                <ScalarProperty Name="Telefono_Oficina" ColumnName="Telefono_Oficina" />
+                <ScalarProperty Name="Email_Oficina" ColumnName="Email_Oficina" />
+                <ScalarProperty Name="Direccion_Oficina" ColumnName="Direccion_Oficina" />
+                <ScalarProperty Name="Nombre_Oficina" ColumnName="Nombre_Oficina" />
+                <ScalarProperty Name="Id_Oficina" ColumnName="Id_Oficina" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tbl_Usuarios">
             <EntityTypeMapping TypeName="DB_HotellingModel.Tbl_Usuarios">
               <MappingFragment StoreEntitySet="Tbl_Usuarios">
-                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
-                <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
-                <ScalarProperty Name="Apellido_Usuario" ColumnName="Apellido_Usuario" />
-                <ScalarProperty Name="Identificacion_Usuario" ColumnName="Identificacion_Usuario" />
-                <ScalarProperty Name="Email_Usuario" ColumnName="Email_Usuario" />
-                <ScalarProperty Name="Telefono_Personal" ColumnName="Telefono_Personal" />
-                <ScalarProperty Name="Telefono_Oficina" ColumnName="Telefono_Oficina" />
-                <ScalarProperty Name="Id_Oficina" ColumnName="Id_Oficina" />
                 <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+                <ScalarProperty Name="Id_Oficina" ColumnName="Id_Oficina" />
+                <ScalarProperty Name="Telefono_Extension" ColumnName="Telefono_Extension" />
+                <ScalarProperty Name="Telefono_Personal" ColumnName="Telefono_Personal" />
+                <ScalarProperty Name="Email_Usuario" ColumnName="Email_Usuario" />
+                <ScalarProperty Name="Identificacion_Usuario" ColumnName="Identificacion_Usuario" />
+                <ScalarProperty Name="Apellido_Usuario" ColumnName="Apellido_Usuario" />
+                <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

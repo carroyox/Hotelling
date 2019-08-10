@@ -28,7 +28,6 @@ namespace DAL
         public virtual DbSet<Tbl_Asientos> Tbl_Asientos { get; set; }
         public virtual DbSet<Tbl_AsignacionAsientos> Tbl_AsignacionAsientos { get; set; }
         public virtual DbSet<Tbl_Oficinas> Tbl_Oficinas { get; set; }
-        public virtual DbSet<Tbl_Perfiles> Tbl_Perfiles { get; set; }
         public virtual DbSet<Tbl_Usuarios> Tbl_Usuarios { get; set; }
     }
 }

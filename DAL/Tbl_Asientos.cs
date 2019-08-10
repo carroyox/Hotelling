@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class Tbl_Asientos
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tbl_Asientos()
+        {
+            this.Tbl_AsignacionAsientos = new HashSet<Tbl_AsignacionAsientos>();
+        }
+    
         public int Id_Asiento { get; set; }
         public int Id_oficina { get; set; }
         public bool Es_Fijo { get; set; }
@@ -21,5 +27,9 @@ namespace DAL
         public bool Tiene_Monitor { get; set; }
         public bool Tiene_Teclado_Mouse { get; set; }
         public bool Es_Especial { get; set; }
+    
+        public virtual Tbl_Oficinas Tbl_Oficinas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_AsignacionAsientos> Tbl_AsignacionAsientos { get; set; }
     }
 }

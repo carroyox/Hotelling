@@ -17,7 +17,17 @@ namespace Hotelling
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Principal.aspx");
+            UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
+            string test = API.validacion(txtUser.Text);
+            Session["Perfil"] = test;
+            if (test.Equals("Mp=1"))
+            {
+                Response.Redirect("Principal.aspx");
+            }
+
+            
+
+
         }
     }
 }

@@ -9,18 +9,40 @@
 //------------------------------------------------------------------------------
 
 namespace Hotelling.UserApiSave {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://tempuri.org/", ItemName="string")]
+    [System.SerializableAttribute()]
+    public class ArrayOfString : System.Collections.Generic.List<string> {
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="UserApiSave.UserAPISoap")]
     public interface UserAPISoap {
         
-        // CODEGEN: Generating message contract since element name a from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name datos from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Save", ReplyAction="*")]
         Hotelling.UserApiSave.SaveResponse Save(Hotelling.UserApiSave.SaveRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Save", ReplyAction="*")]
         System.Threading.Tasks.Task<Hotelling.UserApiSave.SaveResponse> SaveAsync(Hotelling.UserApiSave.SaveRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/list", ReplyAction="*")]
+        void list();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/list", ReplyAction="*")]
+        System.Threading.Tasks.Task listAsync();
+        
+        // CODEGEN: Generating message contract since element name usr from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/validacion", ReplyAction="*")]
+        Hotelling.UserApiSave.validacionResponse validacion(Hotelling.UserApiSave.validacionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/validacion", ReplyAction="*")]
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.validacionResponse> validacionAsync(Hotelling.UserApiSave.validacionRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -47,33 +69,13 @@ namespace Hotelling.UserApiSave {
     public partial class SaveRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string a;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string b;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string c;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string d;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string e;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string f;
+        public Hotelling.UserApiSave.ArrayOfString datos;
         
         public SaveRequestBody() {
         }
         
-        public SaveRequestBody(string a, string b, string c, string d, string e, string f) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-            this.d = d;
-            this.e = e;
-            this.f = f;
+        public SaveRequestBody(Hotelling.UserApiSave.ArrayOfString datos) {
+            this.datos = datos;
         }
     }
     
@@ -101,6 +103,74 @@ namespace Hotelling.UserApiSave {
     public partial class SaveResponseBody {
         
         public SaveResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class validacionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="validacion", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.validacionRequestBody Body;
+        
+        public validacionRequest() {
+        }
+        
+        public validacionRequest(Hotelling.UserApiSave.validacionRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class validacionRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string usr;
+        
+        public validacionRequestBody() {
+        }
+        
+        public validacionRequestBody(string usr) {
+            this.usr = usr;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class validacionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="validacionResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.validacionResponseBody Body;
+        
+        public validacionResponse() {
+        }
+        
+        public validacionResponse(Hotelling.UserApiSave.validacionResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class validacionResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string validacionResult;
+        
+        public validacionResponseBody() {
+        }
+        
+        public validacionResponseBody(string validacionResult) {
+            this.validacionResult = validacionResult;
         }
     }
     
@@ -136,15 +206,10 @@ namespace Hotelling.UserApiSave {
             return base.Channel.Save(request);
         }
         
-        public void Save(string a, string b, string c, string d, string e, string f) {
+        public void Save(Hotelling.UserApiSave.ArrayOfString datos) {
             Hotelling.UserApiSave.SaveRequest inValue = new Hotelling.UserApiSave.SaveRequest();
             inValue.Body = new Hotelling.UserApiSave.SaveRequestBody();
-            inValue.Body.a = a;
-            inValue.Body.b = b;
-            inValue.Body.c = c;
-            inValue.Body.d = d;
-            inValue.Body.e = e;
-            inValue.Body.f = f;
+            inValue.Body.datos = datos;
             Hotelling.UserApiSave.SaveResponse retVal = ((Hotelling.UserApiSave.UserAPISoap)(this)).Save(inValue);
         }
         
@@ -153,16 +218,44 @@ namespace Hotelling.UserApiSave {
             return base.Channel.SaveAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Hotelling.UserApiSave.SaveResponse> SaveAsync(string a, string b, string c, string d, string e, string f) {
+        public System.Threading.Tasks.Task<Hotelling.UserApiSave.SaveResponse> SaveAsync(Hotelling.UserApiSave.ArrayOfString datos) {
             Hotelling.UserApiSave.SaveRequest inValue = new Hotelling.UserApiSave.SaveRequest();
             inValue.Body = new Hotelling.UserApiSave.SaveRequestBody();
-            inValue.Body.a = a;
-            inValue.Body.b = b;
-            inValue.Body.c = c;
-            inValue.Body.d = d;
-            inValue.Body.e = e;
-            inValue.Body.f = f;
+            inValue.Body.datos = datos;
             return ((Hotelling.UserApiSave.UserAPISoap)(this)).SaveAsync(inValue);
+        }
+        
+        public void list() {
+            base.Channel.list();
+        }
+        
+        public System.Threading.Tasks.Task listAsync() {
+            return base.Channel.listAsync();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Hotelling.UserApiSave.validacionResponse Hotelling.UserApiSave.UserAPISoap.validacion(Hotelling.UserApiSave.validacionRequest request) {
+            return base.Channel.validacion(request);
+        }
+        
+        public string validacion(string usr) {
+            Hotelling.UserApiSave.validacionRequest inValue = new Hotelling.UserApiSave.validacionRequest();
+            inValue.Body = new Hotelling.UserApiSave.validacionRequestBody();
+            inValue.Body.usr = usr;
+            Hotelling.UserApiSave.validacionResponse retVal = ((Hotelling.UserApiSave.UserAPISoap)(this)).validacion(inValue);
+            return retVal.Body.validacionResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.validacionResponse> Hotelling.UserApiSave.UserAPISoap.validacionAsync(Hotelling.UserApiSave.validacionRequest request) {
+            return base.Channel.validacionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Hotelling.UserApiSave.validacionResponse> validacionAsync(string usr) {
+            Hotelling.UserApiSave.validacionRequest inValue = new Hotelling.UserApiSave.validacionRequest();
+            inValue.Body = new Hotelling.UserApiSave.validacionRequestBody();
+            inValue.Body.usr = usr;
+            return ((Hotelling.UserApiSave.UserAPISoap)(this)).validacionAsync(inValue);
         }
     }
 }

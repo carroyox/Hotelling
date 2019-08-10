@@ -17,16 +17,19 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tbl_Oficinas()
         {
+            this.Tbl_Asientos = new HashSet<Tbl_Asientos>();
             this.Tbl_Usuarios = new HashSet<Tbl_Usuarios>();
         }
     
         public int Id_Oficina { get; set; }
         public string Nombre_Oficina { get; set; }
-        public string Dirreccion_Oficina { get; set; }
+        public string Direccion_Oficina { get; set; }
         public string Email_Oficina { get; set; }
         public string Telefono_Oficina { get; set; }
         public int Numero_Asientos { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Asientos> Tbl_Asientos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Usuarios> Tbl_Usuarios { get; set; }
     }
