@@ -31,11 +31,12 @@ namespace Hotelling.UserApiSave {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Save", ReplyAction="*")]
         System.Threading.Tasks.Task<Hotelling.UserApiSave.SaveResponse> SaveAsync(Hotelling.UserApiSave.SaveRequest request);
         
+        // CODEGEN: Generating message contract since element name listResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/list", ReplyAction="*")]
-        void list();
+        Hotelling.UserApiSave.listResponse list(Hotelling.UserApiSave.listRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/list", ReplyAction="*")]
-        System.Threading.Tasks.Task listAsync();
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.listResponse> listAsync(Hotelling.UserApiSave.listRequest request);
         
         // CODEGEN: Generating message contract since element name usr from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/validacion", ReplyAction="*")]
@@ -110,6 +111,74 @@ namespace Hotelling.UserApiSave {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="list", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.listRequestBody Body;
+        
+        public listRequest() {
+        }
+        
+        public listRequest(Hotelling.UserApiSave.listRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class listRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public char X;
+        
+        public listRequestBody() {
+        }
+        
+        public listRequestBody(char X) {
+            this.X = X;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.listResponseBody Body;
+        
+        public listResponse() {
+        }
+        
+        public listResponse(Hotelling.UserApiSave.listResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class listResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Hotelling.UserApiSave.ArrayOfString[] listResult;
+        
+        public listResponseBody() {
+        }
+        
+        public listResponseBody(Hotelling.UserApiSave.ArrayOfString[] listResult) {
+            this.listResult = listResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class validacionRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="validacion", Namespace="http://tempuri.org/", Order=0)]
@@ -164,12 +233,12 @@ namespace Hotelling.UserApiSave {
     public partial class validacionResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string validacionResult;
+        public Hotelling.UserApiSave.ArrayOfString validacionResult;
         
         public validacionResponseBody() {
         }
         
-        public validacionResponseBody(string validacionResult) {
+        public validacionResponseBody(Hotelling.UserApiSave.ArrayOfString validacionResult) {
             this.validacionResult = validacionResult;
         }
     }
@@ -225,12 +294,29 @@ namespace Hotelling.UserApiSave {
             return ((Hotelling.UserApiSave.UserAPISoap)(this)).SaveAsync(inValue);
         }
         
-        public void list() {
-            base.Channel.list();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Hotelling.UserApiSave.listResponse Hotelling.UserApiSave.UserAPISoap.list(Hotelling.UserApiSave.listRequest request) {
+            return base.Channel.list(request);
         }
         
-        public System.Threading.Tasks.Task listAsync() {
-            return base.Channel.listAsync();
+        public Hotelling.UserApiSave.ArrayOfString[] list(char X) {
+            Hotelling.UserApiSave.listRequest inValue = new Hotelling.UserApiSave.listRequest();
+            inValue.Body = new Hotelling.UserApiSave.listRequestBody();
+            inValue.Body.X = X;
+            Hotelling.UserApiSave.listResponse retVal = ((Hotelling.UserApiSave.UserAPISoap)(this)).list(inValue);
+            return retVal.Body.listResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.listResponse> Hotelling.UserApiSave.UserAPISoap.listAsync(Hotelling.UserApiSave.listRequest request) {
+            return base.Channel.listAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Hotelling.UserApiSave.listResponse> listAsync(char X) {
+            Hotelling.UserApiSave.listRequest inValue = new Hotelling.UserApiSave.listRequest();
+            inValue.Body = new Hotelling.UserApiSave.listRequestBody();
+            inValue.Body.X = X;
+            return ((Hotelling.UserApiSave.UserAPISoap)(this)).listAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -238,7 +324,7 @@ namespace Hotelling.UserApiSave {
             return base.Channel.validacion(request);
         }
         
-        public string validacion(string usr) {
+        public Hotelling.UserApiSave.ArrayOfString validacion(string usr) {
             Hotelling.UserApiSave.validacionRequest inValue = new Hotelling.UserApiSave.validacionRequest();
             inValue.Body = new Hotelling.UserApiSave.validacionRequestBody();
             inValue.Body.usr = usr;

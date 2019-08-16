@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Hotelling.UserApiSave;
 
 namespace Hotelling
 {
@@ -11,16 +12,22 @@ namespace Hotelling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
+
+            ArrayOfString[] datos = API.list('O');
+            //Session["DGOffice"] = datos;
+            DGOficinas.DataSource = datos.Select(arr => new
+            {Oficina = arr[1],
+            Telefono = arr[4],
+            Direccion = arr[2],
+            QTY_Asientos = arr[5]}).ToArray();
+            DGOficinas.DataBind();
 
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void DGOficinas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
-
-            //API.Save(tbName.Text, tbLastName.Text, tbID.Text, tbEmail.Text, tbCel.Text, tbCel.Text);
-
-
+          //DGOficinas.SelectedRow
         }
     }
 }

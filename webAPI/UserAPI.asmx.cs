@@ -1,5 +1,6 @@
 ﻿using BL;
 using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Services;
 
@@ -22,9 +23,6 @@ namespace webAPI
         public void Save(String[] datos)
         {
             Reference nuevo = new Reference() { };
-            nuevo.lista();
-
-
             switch (datos[0])
             {
                 case "User":
@@ -46,23 +44,35 @@ namespace webAPI
 
         [WebMethod]
 
-        public void list()
+        public List<String[]> list(Char X)
         {
-            Reference nuevo = new Reference() { };
 
+            Reference nuevo = new Reference() { };
+            List<String[]> Datos = null;
+            if (X.Equals('O'))
+            {
+                Datos = nuevo.datosOficinas();
+            }
+            else if (X.Equals('U'))
+            {
+                Datos = nuevo.datosUsuarios();
+            }
+
+
+            return Datos;
 
         }
 
         [WebMethod]
-        public String validacion(string usr)
+        public String[] validacion(string usr)
         {
             Reference nuevo = new Reference() { };
 
-          
-            string[] permisos = nuevo.validacion(usr).Split(';');
-        
 
-            return permisos[0];
+            string[] permisos = nuevo.validacion(usr).Split(';');
+
+
+            return permisos;
         }
     }
 }

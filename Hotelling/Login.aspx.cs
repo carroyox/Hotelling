@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Hotelling.UserApiSave;
 
 namespace Hotelling
 {
@@ -18,14 +18,14 @@ namespace Hotelling
         protected void Submit_Click(object sender, EventArgs e)
         {
             UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
-            string test = API.validacion(txtUser.Text);
+            ArrayOfString test = API.validacion(txtUser.Text);
             Session["Perfil"] = test;
-            if (test.Equals("Mp=1"))
+            if (test[0].Equals("Mp=1"))
             {
                 Response.Redirect("Principal.aspx");
             }
 
-            
+
 
 
         }

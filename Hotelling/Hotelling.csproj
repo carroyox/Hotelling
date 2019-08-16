@@ -82,6 +82,12 @@
     <Content Include="Connected Services\UserApiSave\Hotelling.UserApiSave.validacionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\UserApiSave\Hotelling.UserApiSave.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UserApiSave\Hotelling.UserApiSave.listResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\UserApiSave\UserAPI.disco" />
     <None Include="Connected Services\UserApiSave\configuration91.svcinfo" />
     <None Include="Connected Services\UserApiSave\configuration.svcinfo" />
@@ -91,6 +97,7 @@
     </None>
     <Content Include="CSS\CE404.css" />
     <Content Include="CSS\HojaEstilos.css" />
+    <Content Include="CSS\Principal.css" />
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleLogin.css" />
     <Content Include="error.aspx" />
