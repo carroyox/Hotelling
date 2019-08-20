@@ -29,5 +29,10 @@ namespace Hotelling
         {
           //DGOficinas.SelectedRow
         }
+
+        protected void TextBox11_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

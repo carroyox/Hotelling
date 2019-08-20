@@ -44,6 +44,20 @@ namespace Hotelling.UserApiSave {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/validacion", ReplyAction="*")]
         System.Threading.Tasks.Task<Hotelling.UserApiSave.validacionResponse> validacionAsync(Hotelling.UserApiSave.validacionRequest request);
+        
+        // CODEGEN: Generating message contract since element name OficinasResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Oficinas", ReplyAction="*")]
+        Hotelling.UserApiSave.OficinasResponse Oficinas(Hotelling.UserApiSave.OficinasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Oficinas", ReplyAction="*")]
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.OficinasResponse> OficinasAsync(Hotelling.UserApiSave.OficinasRequest request);
+        
+        // CODEGEN: Generating message contract since element name name from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Asientos", ReplyAction="*")]
+        Hotelling.UserApiSave.AsientosResponse Asientos(Hotelling.UserApiSave.AsientosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Asientos", ReplyAction="*")]
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.AsientosResponse> AsientosAsync(Hotelling.UserApiSave.AsientosRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -243,6 +257,135 @@ namespace Hotelling.UserApiSave {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class OficinasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Oficinas", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.OficinasRequestBody Body;
+        
+        public OficinasRequest() {
+        }
+        
+        public OficinasRequest(Hotelling.UserApiSave.OficinasRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class OficinasRequestBody {
+        
+        public OficinasRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class OficinasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="OficinasResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.OficinasResponseBody Body;
+        
+        public OficinasResponse() {
+        }
+        
+        public OficinasResponse(Hotelling.UserApiSave.OficinasResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class OficinasResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Hotelling.UserApiSave.ArrayOfString OficinasResult;
+        
+        public OficinasResponseBody() {
+        }
+        
+        public OficinasResponseBody(Hotelling.UserApiSave.ArrayOfString OficinasResult) {
+            this.OficinasResult = OficinasResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AsientosRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Asientos", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.AsientosRequestBody Body;
+        
+        public AsientosRequest() {
+        }
+        
+        public AsientosRequest(Hotelling.UserApiSave.AsientosRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AsientosRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string name;
+        
+        public AsientosRequestBody() {
+        }
+        
+        public AsientosRequestBody(string name) {
+            this.name = name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AsientosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AsientosResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.AsientosResponseBody Body;
+        
+        public AsientosResponse() {
+        }
+        
+        public AsientosResponse(Hotelling.UserApiSave.AsientosResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AsientosResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Hotelling.UserApiSave.ArrayOfString AsientosResult;
+        
+        public AsientosResponseBody() {
+        }
+        
+        public AsientosResponseBody(Hotelling.UserApiSave.ArrayOfString AsientosResult) {
+            this.AsientosResult = AsientosResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface UserAPISoapChannel : Hotelling.UserApiSave.UserAPISoap, System.ServiceModel.IClientChannel {
     }
@@ -342,6 +485,54 @@ namespace Hotelling.UserApiSave {
             inValue.Body = new Hotelling.UserApiSave.validacionRequestBody();
             inValue.Body.usr = usr;
             return ((Hotelling.UserApiSave.UserAPISoap)(this)).validacionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Hotelling.UserApiSave.OficinasResponse Hotelling.UserApiSave.UserAPISoap.Oficinas(Hotelling.UserApiSave.OficinasRequest request) {
+            return base.Channel.Oficinas(request);
+        }
+        
+        public Hotelling.UserApiSave.ArrayOfString Oficinas() {
+            Hotelling.UserApiSave.OficinasRequest inValue = new Hotelling.UserApiSave.OficinasRequest();
+            inValue.Body = new Hotelling.UserApiSave.OficinasRequestBody();
+            Hotelling.UserApiSave.OficinasResponse retVal = ((Hotelling.UserApiSave.UserAPISoap)(this)).Oficinas(inValue);
+            return retVal.Body.OficinasResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.OficinasResponse> Hotelling.UserApiSave.UserAPISoap.OficinasAsync(Hotelling.UserApiSave.OficinasRequest request) {
+            return base.Channel.OficinasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Hotelling.UserApiSave.OficinasResponse> OficinasAsync() {
+            Hotelling.UserApiSave.OficinasRequest inValue = new Hotelling.UserApiSave.OficinasRequest();
+            inValue.Body = new Hotelling.UserApiSave.OficinasRequestBody();
+            return ((Hotelling.UserApiSave.UserAPISoap)(this)).OficinasAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Hotelling.UserApiSave.AsientosResponse Hotelling.UserApiSave.UserAPISoap.Asientos(Hotelling.UserApiSave.AsientosRequest request) {
+            return base.Channel.Asientos(request);
+        }
+        
+        public Hotelling.UserApiSave.ArrayOfString Asientos(string name) {
+            Hotelling.UserApiSave.AsientosRequest inValue = new Hotelling.UserApiSave.AsientosRequest();
+            inValue.Body = new Hotelling.UserApiSave.AsientosRequestBody();
+            inValue.Body.name = name;
+            Hotelling.UserApiSave.AsientosResponse retVal = ((Hotelling.UserApiSave.UserAPISoap)(this)).Asientos(inValue);
+            return retVal.Body.AsientosResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.AsientosResponse> Hotelling.UserApiSave.UserAPISoap.AsientosAsync(Hotelling.UserApiSave.AsientosRequest request) {
+            return base.Channel.AsientosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Hotelling.UserApiSave.AsientosResponse> AsientosAsync(string name) {
+            Hotelling.UserApiSave.AsientosRequest inValue = new Hotelling.UserApiSave.AsientosRequest();
+            inValue.Body = new Hotelling.UserApiSave.AsientosRequestBody();
+            inValue.Body.name = name;
+            return ((Hotelling.UserApiSave.UserAPISoap)(this)).AsientosAsync(inValue);
         }
     }
 }

@@ -20,12 +20,12 @@ namespace Hotelling
             UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
             ArrayOfString test = API.validacion(txtUser.Text);
             Session["Perfil"] = test;
-            if (test[0].Equals("Mp=1"))
+            if (test[0].Equals("Mp=True"))
             {
                 Response.Redirect("Principal.aspx");
             }
 
-
+            
 
 
         }

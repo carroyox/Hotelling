@@ -6,7 +6,7 @@
 <head runat="server">
     <title>System Q&R / CR</title>
     <link href="CSS/StyleLogin.css" rel="stylesheet" />
-    <script src="JavaScript/login.js" type="text/javascript"></script>
+    <script src="JS/login.js" type="text/javascript"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="Images/icon.png">
 </head>
 <body onload="showSlides()">

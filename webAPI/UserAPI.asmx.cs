@@ -26,7 +26,7 @@ namespace webAPI
             switch (datos[0])
             {
                 case "User":
-                    nuevo.SaveUser(datos[1], datos[2], datos[3], datos[4], datos[5], datos[6]);
+                    nuevo.SaveUser(datos[1], datos[2], datos[3], datos[4], datos[5], datos[6], datos[7], datos[8]);
                     break;
                 case "Office":
                     //nuevo.SaveOffice(datos[1], datos[2], datos[3], datos[4]);
@@ -68,11 +68,25 @@ namespace webAPI
         {
             Reference nuevo = new Reference() { };
 
-
+          
             string[] permisos = nuevo.validacion(usr).Split(';');
 
 
             return permisos;
+        }
+
+        [WebMethod]
+        public String[] Oficinas()
+        {
+            Reference nuevo = new Reference() { };
+            return nuevo.listOficinas();
+        }
+
+        [WebMethod]
+        public String[] Asientos(String name)
+        {
+            Reference nuevo = new Reference() { };
+            return nuevo.listAsientos(name);
         }
     }
 }

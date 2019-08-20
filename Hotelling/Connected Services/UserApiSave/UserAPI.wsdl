@@ -51,6 +51,30 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Oficinas">
+        <s:complexType />
+      </s:element>
+      <s:element name="OficinasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OficinasResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Asientos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AsientosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AsientosResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="char">
@@ -76,6 +100,18 @@
   <wsdl:message name="validacionSoapOut">
     <wsdl:part name="parameters" element="tns:validacionResponse" />
   </wsdl:message>
+  <wsdl:message name="OficinasSoapIn">
+    <wsdl:part name="parameters" element="tns:Oficinas" />
+  </wsdl:message>
+  <wsdl:message name="OficinasSoapOut">
+    <wsdl:part name="parameters" element="tns:OficinasResponse" />
+  </wsdl:message>
+  <wsdl:message name="AsientosSoapIn">
+    <wsdl:part name="parameters" element="tns:Asientos" />
+  </wsdl:message>
+  <wsdl:message name="AsientosSoapOut">
+    <wsdl:part name="parameters" element="tns:AsientosResponse" />
+  </wsdl:message>
   <wsdl:portType name="UserAPISoap">
     <wsdl:operation name="Save">
       <wsdl:input message="tns:SaveSoapIn" />
@@ -88,6 +124,14 @@
     <wsdl:operation name="validacion">
       <wsdl:input message="tns:validacionSoapIn" />
       <wsdl:output message="tns:validacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Oficinas">
+      <wsdl:input message="tns:OficinasSoapIn" />
+      <wsdl:output message="tns:OficinasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Asientos">
+      <wsdl:input message="tns:AsientosSoapIn" />
+      <wsdl:output message="tns:AsientosSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="UserAPISoap" type="tns:UserAPISoap">
@@ -119,6 +163,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Oficinas">
+      <soap:operation soapAction="http://tempuri.org/Oficinas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Asientos">
+      <soap:operation soapAction="http://tempuri.org/Asientos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="UserAPISoap12" type="tns:UserAPISoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -142,6 +204,24 @@
     </wsdl:operation>
     <wsdl:operation name="validacion">
       <soap12:operation soapAction="http://tempuri.org/validacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Oficinas">
+      <soap12:operation soapAction="http://tempuri.org/Oficinas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Asientos">
+      <soap12:operation soapAction="http://tempuri.org/Asientos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
