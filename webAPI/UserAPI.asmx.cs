@@ -68,7 +68,7 @@ namespace webAPI
         {
             Reference nuevo = new Reference() { };
 
-          
+
             string[] permisos = nuevo.validacion(usr).Split(';');
 
 
@@ -83,10 +83,31 @@ namespace webAPI
         }
 
         [WebMethod]
-        public String[] Asientos(String name)
+        public List<String> Asientos(String name)
         {
             Reference nuevo = new Reference() { };
             return nuevo.listAsientos(name);
+        }
+
+        [WebMethod]
+        public String[] seats(int id)
+        {
+            Reference nuevo = new Reference() { };
+
+            string[] features = nuevo.SeatsFeaturing(id).Split(';');
+
+            return features;
+        }
+
+
+        [WebMethod]
+        public void seatsSave(int id, string[]data)
+        {
+            Reference nuevo = new Reference() { };
+
+            nuevo.SaveSeat(id, data);
+
+           
         }
     }
 }

@@ -32,7 +32,50 @@ namespace Hotelling
                 DDLAsiento.DataSource = null;//for clean previous data on combobox
                 DDLAsiento.DataSource = datos;
                 DDLAsiento.DataBind();
+
             }
+        }
+
+
+        protected void Submit_Clicked(object sender, EventArgs e)
+        {
+            if (DDLOficina.SelectedIndex != 0)
+            {
+                if (DDLAsiento.SelectedIndex != 0)
+                {
+
+                    UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
+
+
+                    ArrayOfString data = new ArrayOfString {
+                ChkFijo.Checked.ToString(),
+                ChkPhone.Checked.ToString(),
+                ChkMonitor.Checked.ToString(),
+                ChkKM.Checked.ToString(),
+                ChkEspecial.Checked.ToString()};
+                    API.seatsSave(Convert.ToInt16(DDLAsiento.Text), data);
+                }
+            }
+        }
+
+        protected void DDLAsiento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DDLOficina.SelectedIndex != 0)
+            {
+                if (DDLAsiento.SelectedIndex != 0)
+                {
+                    UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
+                    ArrayOfString features = API.seats(Convert.ToInt16(DDLAsiento.Text));
+
+                    ChkFijo.Checked = Convert.ToBoolean(features[0]);
+                    ChkPhone.Checked = Convert.ToBoolean(features[1]);
+                    ChkMonitor.Checked = Convert.ToBoolean(features[2]);
+                    ChkKM.Checked = Convert.ToBoolean(features[3]);
+                    ChkEspecial.Checked = Convert.ToBoolean(features[4]);
+                }
+            }
+
+
         }
     }
 }

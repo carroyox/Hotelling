@@ -75,6 +75,31 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="seats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seatsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seatsSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seatsSaveResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="char">
@@ -112,6 +137,18 @@
   <wsdl:message name="AsientosSoapOut">
     <wsdl:part name="parameters" element="tns:AsientosResponse" />
   </wsdl:message>
+  <wsdl:message name="seatsSoapIn">
+    <wsdl:part name="parameters" element="tns:seats" />
+  </wsdl:message>
+  <wsdl:message name="seatsSoapOut">
+    <wsdl:part name="parameters" element="tns:seatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="seatsSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:seatsSave" />
+  </wsdl:message>
+  <wsdl:message name="seatsSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:seatsSaveResponse" />
+  </wsdl:message>
   <wsdl:portType name="UserAPISoap">
     <wsdl:operation name="Save">
       <wsdl:input message="tns:SaveSoapIn" />
@@ -132,6 +169,14 @@
     <wsdl:operation name="Asientos">
       <wsdl:input message="tns:AsientosSoapIn" />
       <wsdl:output message="tns:AsientosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seats">
+      <wsdl:input message="tns:seatsSoapIn" />
+      <wsdl:output message="tns:seatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seatsSave">
+      <wsdl:input message="tns:seatsSaveSoapIn" />
+      <wsdl:output message="tns:seatsSaveSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="UserAPISoap" type="tns:UserAPISoap">
@@ -181,6 +226,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="seats">
+      <soap:operation soapAction="http://tempuri.org/seats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seatsSave">
+      <soap:operation soapAction="http://tempuri.org/seatsSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="UserAPISoap12" type="tns:UserAPISoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -222,6 +285,24 @@
     </wsdl:operation>
     <wsdl:operation name="Asientos">
       <soap12:operation soapAction="http://tempuri.org/Asientos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seats">
+      <soap12:operation soapAction="http://tempuri.org/seats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seatsSave">
+      <soap12:operation soapAction="http://tempuri.org/seatsSave" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

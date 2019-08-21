@@ -384,3 +384,9 @@ body {
 .table-responsive > .table-bordered {
     border: 0;
 }
+
+
+.seats {
+ background-image: url('../Images/desk2.png');
+
+}

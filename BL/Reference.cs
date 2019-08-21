@@ -91,7 +91,6 @@ namespace BL
 
         }
 
-
         public List<String[]> datosUsuarios()
         {
             List<String[]> retorno = new List<string[]>();
@@ -168,29 +167,27 @@ namespace BL
 
             return retorno;
         }
-        public String[] listAsientos(String Nombre)
+        public List<string> listAsientos(String Nombre)
         {
-            String[] retorno = null;
+
+            List<string> retorno = new List<string>();
+
             using (HotellingCon context = new HotellingCon())
             {
 
-                //retorno = context.Tbl_Asientos.Where(x=>x.   Select(x => x.Nombre_Oficina).ToArray();
+                //retorno 
+                var test = context.Tbl_Asientos.Join(context.Tbl_Oficinas,
+                    asien => asien.Id_oficina,
+                    offi => offi.Id_Oficina,
+                    (asien, offi) => new { asien.Id_Asiento, offi })
+                    .Where(x => x.offi.Nombre_Oficina == Nombre).ToArray();
 
-                var test = context.Tbl_Asientos.GroupJoin(context.Tbl_Oficinas,
-                    a => a.Id_oficina,
-                    o => o.Id_Oficina,
-                    (x, y) => new { x, y }).SelectMany(n => n.y.DefaultIfEmpty()).Where(c => c.Nombre_Oficina == Nombre).ToArray();
+                foreach (var c in test)
+                {
+                    retorno.Add(c.Id_Asiento.ToString());
 
-                //select Id_Asiento from Tbl_Asientos A left join Tbl_Oficinas O on A.Id_Asiento = O.Id_Oficina AND O.Nombre_Oficina = 'Hogar'
 
-                //var qry = Foo.GroupJoin(
-                //          Bar,
-                //          foo => foo.Foo_Id,
-                //          bar => bar.Foo_Id,
-                //          (x, y) => new { Foo = x, Bars = y })
-                //    .SelectMany(
-                //          x => x.Bars.DefaultIfEmpty(),
-                //          (x, y) => new { Foo = x.Foo, Bar = y });
+                }
 
 
             }
@@ -199,7 +196,58 @@ namespace BL
             return retorno;
         }
 
+        public String SeatsFeaturing(int Id)
+        {
 
+            string retorno = "";
+
+            using (HotellingCon con = new HotellingCon())
+            {
+                var val = con.Tbl_Asientos.Where(x => x.Id_Asiento == Id).ToArray();
+
+
+                foreach (Tbl_Asientos tabla in val)
+                {
+                    retorno = string.Format("{0};{1};{2};{3};{4}",
+                        tabla.Es_Fijo,
+                        tabla.Tiene_Telefono,
+                        tabla.Tiene_Monitor,
+                        tabla.Tiene_Teclado_Mouse,
+                        tabla.Es_Especial);
+                }
+
+
+
+            }
+
+
+            return retorno;
+
+
+        }
+
+        public void SaveSeat(int Id, String[] data)
+        {
+            using (HotellingCon context = new HotellingCon())
+            {
+                var val = context.Tbl_Asientos.Where(x => x.Id_Asiento == Id);
+
+                //if (val != null) {
+                //    val.Es_Fijo = Convert.ToBoolean(data[0]);
+                //    val.Tiene_Telefono = Convert.ToBoolean(data[1]);
+                //    val.Tiene_Monitor = Convert.ToBoolean(data[2]);
+                //    val.Tiene_Teclado_Mouse = Convert.ToBoolean(data[3]);
+                //    val.Es_Especial = Convert.ToBoolean(data[4]);
+                //}
+
+
+
+
+                context.SaveChanges();
+
+
+            }
+        }
 
 
     }

@@ -20,7 +20,7 @@
                 <div class="sub-menu2">
                     <ul>
                         <li><a href="Asientos.aspx">Administration</a></li>
-                        <li><a href="#">Seats Selection</a></li>
+                        <li><a href="SeleccionAsientos.aspx">Seats Selection</a></li>
                     </ul>
                 </div>
             </li>

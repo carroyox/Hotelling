@@ -17,11 +17,11 @@
 
         <div class="form-reg">
 
-            <asp:DropDownList ID="DDLOficina" class="input" placeholder="Oficina" required="true" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="DDLOficina_SelectedIndexChanged" AutoPostBack="True">
-                <asp:ListItem Text="Select Office" Value="" disabled Selected></asp:ListItem> 
-          
+            <asp:DropDownList ID="DDLOficina" class="input" placeholder="Oficina" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="DDLOficina_SelectedIndexChanged" AutoPostBack="True">
+                <asp:ListItem Text="Select Office" Value="" disabled Selected></asp:ListItem>
+
             </asp:DropDownList><br>
-            <asp:DropDownList ID="DDLAsiento" class="input" placeholder="Asiento" required="true" runat="server" AppendDataBoundItems="true">
+            <asp:DropDownList ID="DDLAsiento" class="input" placeholder="Asiento" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="DDLAsiento_SelectedIndexChanged" AutoPostBack="True">
                 <asp:ListItem Text="Select Seats" Value="" disabled Selected></asp:ListItem>
             </asp:DropDownList>
 
@@ -29,8 +29,8 @@
             <h3>Features</h3>
 
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Seats Features</button>
-
-
+           <%-- <asp:Button ID="OpenFeatures" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" runat="server" Text="Open Seats Features"  />--%>
+           
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
@@ -40,25 +40,26 @@
                         </div>
                         <div class="modal-body">
                             <label>
-                                <asp:CheckBox ID="CheckBox1" runat="server" Text="Rotative" /></label><br>
+                                <asp:CheckBox ID="ChkEspecial" runat="server" Text="Especial" /></label><br>
                             <label>
-                                <asp:CheckBox ID="CheckBox3" runat="server" Text="Desk Phone" /></label><br>
+                                <asp:CheckBox ID="ChkPhone" runat="server" Text="Phone" /></label><br>
                             <label>
-                                <asp:CheckBox ID="CheckBox4" runat="server" Text="Monitor" /></label><br>
+                                <asp:CheckBox ID="ChkMonitor" runat="server" Text="Monitor" /></label><br>
                             <label>
-                                <asp:CheckBox ID="CheckBox5" runat="server" Text="Keyboard" /></label><br>
+                                <asp:CheckBox ID="ChkFijo" runat="server" Text="Es Fijo" /></label><br>
                             <label>
-                                <asp:CheckBox ID="CheckBox6" runat="server" Text="Mouse" /></label><br>
+                                <asp:CheckBox ID="ChkKM" runat="server" Text="Keyboard & mouse" /></label><br>
                         </div>
                         <div class="modal-footer">
-                            <asp:TextBox ID="TextBox1" class="btn-submit" type="submit" value="Save" runat="server"></asp:TextBox>
+                            <asp:Button ID="Submit" class="btn-submit" runat="server" Text="Save" OnClick="Submit_Clicked" />
+                        
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="btn-form">
-                <asp:Button ID="Submit" runat="server" Text="Save Changes" class="btn-submit" />
-            </div>
+            <%--<div class="btn-form">
+                <asp:Button ID="Submit" runat="server" Text="Save Changes" class="btn-submit" OnClick="Submit_Clicked" />
+            </div>--%>
         </div>
     </div>
 

@@ -94,6 +94,12 @@
     <Content Include="Connected Services\UserApiSave\Hotelling.UserApiSave.AsientosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\UserApiSave\Hotelling.UserApiSave.seatsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UserApiSave\Hotelling.UserApiSave.seatsSaveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\UserApiSave\UserAPI.disco" />
     <None Include="Connected Services\UserApiSave\configuration91.svcinfo" />
     <None Include="Connected Services\UserApiSave\configuration.svcinfo" />
@@ -107,6 +113,7 @@
     <Content Include="Images\bklog1.jpg" />
     <Content Include="Images\bklog2.jpg" />
     <Content Include="Images\bklog3.jpg" />
+    <Content Include="Images\desk2.png" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\ht.jpg" />
     <Content Include="Images\icon.png" />
@@ -118,6 +125,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Oficinas.aspx" />
     <Content Include="Principal.aspx" />
+    <Content Include="SeleccionAsientos.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -163,6 +171,13 @@
       <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeleccionAsientos.aspx.cs">
+      <DependentUpon>SeleccionAsientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeleccionAsientos.aspx.designer.cs">
+      <DependentUpon>SeleccionAsientos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
