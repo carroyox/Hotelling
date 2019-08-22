@@ -100,6 +100,20 @@
       <s:element name="seatsSaveResponse">
         <s:complexType />
       </s:element>
+      <s:element name="ReservaDatos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReservaDatosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReservaDatosResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="char">
@@ -149,6 +163,12 @@
   <wsdl:message name="seatsSaveSoapOut">
     <wsdl:part name="parameters" element="tns:seatsSaveResponse" />
   </wsdl:message>
+  <wsdl:message name="ReservaDatosSoapIn">
+    <wsdl:part name="parameters" element="tns:ReservaDatos" />
+  </wsdl:message>
+  <wsdl:message name="ReservaDatosSoapOut">
+    <wsdl:part name="parameters" element="tns:ReservaDatosResponse" />
+  </wsdl:message>
   <wsdl:portType name="UserAPISoap">
     <wsdl:operation name="Save">
       <wsdl:input message="tns:SaveSoapIn" />
@@ -177,6 +197,10 @@
     <wsdl:operation name="seatsSave">
       <wsdl:input message="tns:seatsSaveSoapIn" />
       <wsdl:output message="tns:seatsSaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReservaDatos">
+      <wsdl:input message="tns:ReservaDatosSoapIn" />
+      <wsdl:output message="tns:ReservaDatosSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="UserAPISoap" type="tns:UserAPISoap">
@@ -244,6 +268,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ReservaDatos">
+      <soap:operation soapAction="http://tempuri.org/ReservaDatos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="UserAPISoap12" type="tns:UserAPISoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -303,6 +336,15 @@
     </wsdl:operation>
     <wsdl:operation name="seatsSave">
       <soap12:operation soapAction="http://tempuri.org/seatsSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReservaDatos">
+      <soap12:operation soapAction="http://tempuri.org/ReservaDatos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

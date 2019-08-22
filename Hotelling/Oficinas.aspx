@@ -16,15 +16,14 @@
                 </div>
                 <div class="form-reg">
 
-                    <asp:TextBox ID="TextBox14" class="input" type="text" placeholder="&#128100;Name" required="true" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox15" class="input" type="text" placeholder="&#127968;Address" required="true" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox16" class="input" type="email" placeholder="&#9993;Email Address" required="true" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox17" class="input" type="tel" placeholder="&#128222;Ext" required="true" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox18" class="input" type="number" onkeydown="return false" min='10' max='30' placeholder="&#x1F4BA;Number of seats" required="true" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TbName" class="input" type="text" placeholder="&#128100;Name" required="true" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TbAddress" class="input" type="text" placeholder="&#127968;Address" required="true" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TbEmail" class="input" type="email" placeholder="&#9993;Email Address" required="true" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TbExt" class="input" type="tel" placeholder="&#128222;Ext" required="true" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="Seats" class="input" type="number" onkeydown="return false" min='10' max='18' placeholder="&#x1F4BA;Number of seats" required="true" runat="server"></asp:TextBox>
                 </div>
                 <div class="btn-form">
-                    <asp:Button ID="BtnSave" class="btn-submit" runat="server" Text="Save" />
-                    <asp:Button ID="BtnClear" class="btn-reset" runat="server" Text="Clear" />
+                    <asp:Button ID="BtnSave" class="btn-submit" runat="server" Text="Save" OnClick="BtnSave_Click" />
                     <asp:Button ID="BtnDelete" class="btn-submit" runat="server" Text="Delete" />
 
                 </div>

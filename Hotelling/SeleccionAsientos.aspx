@@ -3,82 +3,42 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
+    <script src="JS/Seats.js"></script>
+    
     <div class="wrapper">
-        <div class="left">
-            <div class="Container">
+        <div class="flex">
+            <div class="with">
                 <div class="form-top">
                     <h2>Seats Selection</h2>
                 </div>
-                <asp:DropDownList ID="Oficina" class="input" placeholder="Oficina" required="true" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="Oficina_SelectedIndexChanged">
-                    <asp:ListItem Text="Seleccione la Oficina" Value="" disabled Selected></asp:ListItem>
-                    <asp:ListItem Value=""></asp:ListItem>
-                    <asp:ListItem Value=""></asp:ListItem>
-                </asp:DropDownList>
+                <asp:DropDownList ID="Oficina" class="input" placeholder="Oficina" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="Oficina_SelectedIndexChanged" AutoPostBack="True">
+                    <asp:ListItem Text="Select Office" Value="" disabled Selected></asp:ListItem>
+                </asp:DropDownList><br>
 
 
-                <%--                <table>
-                    <tr>
-                        <td>
-                           
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                        <td>
-                            <input type="image" class="seats" alt="Submit Form" /></td>
-                    </tr>
-                </table>--%>
                 <div class="mapper">
-                    <img src="Images/s2.jpg" usemap="seats" />
-                    <map name="place">
-                        <area shape="circle" coords="252,317,131" href="" alt="Seat1" />
-                        <area shape="circle" coords="535,314,131" href="" alt="Seat2" />
-                        <area shape="circle" coords="809,318,109" href="" alt="Seat3" />
-                        <area shape="circle" coords="119,109,64" href="" alt="Seat4" />
-                        <area shape="circle" coords="298,112,64" href="" alt="Seat5" />
-                        <area shape="circle" coords="494,104,64" href="" alt="Seat6" />
-                        <area shape="circle" coords="695,106,64" href="" alt="Seat7" />
+                    <img src="Images/office-layout.png" usemap="#image-map">
+
+                    <map name="image-map">
+
+                        <area title="bt1" coords="14,417,136,506" shape="rect" onclick="enabling(1)">
+                        <area title="bt2" coords="137,410,11,326" shape="rect" onclick="enabling(2)">
+                        <area title="bt3" coords="9,232,138,321" shape="rect" onclick="enabling(3)">
+                        <area title="bt4" coords="45,15,268,194" shape="rect" onclick="enabling(4)">
+                        <area title="bt5" coords="272,93,381,197" shape="rect" onclick="enabling(5)">
+                        <area title="bt6" coords="175,299,223,346" shape="rect" onclick="enabling(6)">
+                        <area title="bt7" coords="226,300,274,346" shape="rect" onclick="enabling(7)">
+                        <area title="bt8" coords="295,301,341,346" shape="rect" onclick="enabling(8)">
+                        <area title="bt9" coords="343,300,392,347" shape="rect" onclick="enabling(9)">
+                        <area title="bt10" coords="175,362,223,405" shape="rect" onclick="enabling(10)">
+                        <area title="bt11" coords="228,363,276,406" shape="rect" onclick="enabling(11)">
+                        <area title="bt12" coords="291,362,342,407" shape="rect" onclick="enabling(12)">
+                        <area title="bt13" coords="345,362,394,409" shape="rect" onclick="enabling(13)">
+                        <area title="bt14" coords="444,284,631,466" shape="rect" onclick="enabling(14)">
+                        <area title="bt15" coords="472,169,550,232" shape="rect" onclick="enabling(15)">
+                        <area title="bt16" coords="471,95,554,167" shape="rect" onclick="enabling(16)">
+                        <area title="bt17" coords="387,95,469,167" shape="rect" onclick="enabling(17)">
+                        <area title="bt18" coords="386,168,467,233" shape="rect" onclick="enabling(18)">
                     </map>
                 </div>
 
@@ -90,37 +50,43 @@
                     <h2>Desk Components</h2>
                 </div>
                 <div class="form-reg">
+                    <label>Asiento:<label id="asiento"></label></label>
+                   <%-- <input id="asiento" type="text" runat="server" disabled/>--%>
+                  <%--  <asp:Label ID="Label1" runat="server" Text=""></asp:Label>--%>
+                   <%-- <label>Estado:<label id="estado"></label></label>
+                    <label>Special:<label id="1"></label></label>
+                    <label>Phone:<label id="2"></label></label>
+                    <label>Monitor:<label id="3"></label></label>
+                    <label>Rotative:<label id="4"></label></label>
+                    <label>Keyboard & mouse:<label id="5"></label></label>--%>
+          
+                    <label>
+                        
+                        Fecha Inicio:
+                    <input type="date" id="inicio" runat="server" min="2019-08-22" required>
+                    </label>
+                    <br>
 
                     <label>
-
-                        <asp:CheckBox ID="cbox1" runat="server" value="first_checkbox" Enabled="false" />
-                        Rotative</label><br>
-                    <label>
-                        <asp:CheckBox ID="cbox2" runat="server" value="first_checkbox" Enabled="false" />
-                        Desk Phone</label><br>
-                    <label>
-                        <asp:CheckBox ID="cbox3" runat="server" value="first_checkbox" Enabled="false" />
-                        Monitor</label><br>
-                    <label>
-                        <asp:CheckBox ID="cbox4" runat="server" value="first_checkbox" Enabled="false" />
-                        Keyboard</label><br>
-                    <label>
-                        <asp:CheckBox ID="cbox5" runat="server" value="first_checkbox" Enabled="false" />
-                        Mouse</label><br>
+                        Fecha Final:
+                    <input type="date" id="fin" runat="server" min="2019-08-22" required>
+                    </label>
+                    <br>
+                </div>
+                <br>
 
 
 
 
-                    <div class="btn-form">
-                        <%-- <asp:Button ID="Submit" runat="server" Text="Guardar" class="btn-submit" OnClick="Submit_Click" />
-                <asp:Button ID="Reset" runat="server" Text="Limpiar" class="btn-reset" OnClick="Reset_Click" />--%>
 
-                        <input class="btn-submit" type="submit" value="Save">
-                        <input class="btn-reset" type="reset" value="Clear">
-                    </div>
+                <div class="btn-form">
+                    <asp:Button ID="Button1" class="btn-submit" runat="server" Text="Book!!" OnClick="Button1_Click" />
+
+
                 </div>
             </div>
         </div>
     </div>
+
 
 </asp:Content>

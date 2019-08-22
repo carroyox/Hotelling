@@ -22,48 +22,30 @@ namespace Hotelling {
         protected global::System.Web.UI.WebControls.DropDownList Oficina;
         
         /// <summary>
-        /// cbox1 control.
+        /// inicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbox1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inicio;
         
         /// <summary>
-        /// cbox2 control.
+        /// fin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbox2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl fin;
         
         /// <summary>
-        /// cbox3 control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbox3;
-        
-        /// <summary>
-        /// cbox4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbox4;
-        
-        /// <summary>
-        /// cbox5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbox5;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

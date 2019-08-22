@@ -72,6 +72,13 @@ namespace Hotelling.UserApiSave {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/seatsSave", ReplyAction="*")]
         System.Threading.Tasks.Task<Hotelling.UserApiSave.seatsSaveResponse> seatsSaveAsync(Hotelling.UserApiSave.seatsSaveRequest request);
+        
+        // CODEGEN: Generating message contract since element name name from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ReservaDatos", ReplyAction="*")]
+        Hotelling.UserApiSave.ReservaDatosResponse ReservaDatos(Hotelling.UserApiSave.ReservaDatosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ReservaDatos", ReplyAction="*")]
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.ReservaDatosResponse> ReservaDatosAsync(Hotelling.UserApiSave.ReservaDatosRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -533,6 +540,74 @@ namespace Hotelling.UserApiSave {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ReservaDatosRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReservaDatos", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.ReservaDatosRequestBody Body;
+        
+        public ReservaDatosRequest() {
+        }
+        
+        public ReservaDatosRequest(Hotelling.UserApiSave.ReservaDatosRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class ReservaDatosRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string name;
+        
+        public ReservaDatosRequestBody() {
+        }
+        
+        public ReservaDatosRequestBody(string name) {
+            this.name = name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ReservaDatosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReservaDatosResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Hotelling.UserApiSave.ReservaDatosResponseBody Body;
+        
+        public ReservaDatosResponse() {
+        }
+        
+        public ReservaDatosResponse(Hotelling.UserApiSave.ReservaDatosResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class ReservaDatosResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Hotelling.UserApiSave.ArrayOfString[] ReservaDatosResult;
+        
+        public ReservaDatosResponseBody() {
+        }
+        
+        public ReservaDatosResponseBody(Hotelling.UserApiSave.ArrayOfString[] ReservaDatosResult) {
+            this.ReservaDatosResult = ReservaDatosResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface UserAPISoapChannel : Hotelling.UserApiSave.UserAPISoap, System.ServiceModel.IClientChannel {
     }
@@ -731,6 +806,31 @@ namespace Hotelling.UserApiSave {
             inValue.Body.id = id;
             inValue.Body.data = data;
             return ((Hotelling.UserApiSave.UserAPISoap)(this)).seatsSaveAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Hotelling.UserApiSave.ReservaDatosResponse Hotelling.UserApiSave.UserAPISoap.ReservaDatos(Hotelling.UserApiSave.ReservaDatosRequest request) {
+            return base.Channel.ReservaDatos(request);
+        }
+        
+        public Hotelling.UserApiSave.ArrayOfString[] ReservaDatos(string name) {
+            Hotelling.UserApiSave.ReservaDatosRequest inValue = new Hotelling.UserApiSave.ReservaDatosRequest();
+            inValue.Body = new Hotelling.UserApiSave.ReservaDatosRequestBody();
+            inValue.Body.name = name;
+            Hotelling.UserApiSave.ReservaDatosResponse retVal = ((Hotelling.UserApiSave.UserAPISoap)(this)).ReservaDatos(inValue);
+            return retVal.Body.ReservaDatosResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Hotelling.UserApiSave.ReservaDatosResponse> Hotelling.UserApiSave.UserAPISoap.ReservaDatosAsync(Hotelling.UserApiSave.ReservaDatosRequest request) {
+            return base.Channel.ReservaDatosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Hotelling.UserApiSave.ReservaDatosResponse> ReservaDatosAsync(string name) {
+            Hotelling.UserApiSave.ReservaDatosRequest inValue = new Hotelling.UserApiSave.ReservaDatosRequest();
+            inValue.Body = new Hotelling.UserApiSave.ReservaDatosRequestBody();
+            inValue.Body.name = name;
+            return ((Hotelling.UserApiSave.UserAPISoap)(this)).ReservaDatosAsync(inValue);
         }
     }
 }

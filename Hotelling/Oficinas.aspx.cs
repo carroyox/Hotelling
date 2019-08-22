@@ -15,21 +15,30 @@ namespace Hotelling
             UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
 
             ArrayOfString[] datos = API.list('O');
-          
+
             DGOficinas.DataSource = datos.Select(arr => new
-            {Oficina = arr[1],
-            Telefono = arr[4],
-            Direccion = arr[2],
-            QTY_Asientos = arr[5]}).ToArray();
+            {
+                Oficina = arr[1],
+                Telefono = arr[4],
+                Direccion = arr[2],
+                QTY_Asientos = arr[5]
+            }).ToArray();
             DGOficinas.DataBind();
-            
+
         }
 
         protected void DGOficinas_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //DGOficinas.SelectedRow
+            //DGOficinas.SelectedRow
 
         }
 
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+            ArrayOfString datos = new ArrayOfString { "Office", TbName.Text, TbAddress.Text, TbEmail.Text, TbExt.Text, Seats.Text };
+            UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
+
+            API.Save(datos);
+        }
     }
 }

@@ -92,6 +92,27 @@ namespace BL
 
         }
 
+        public void ReservedSeat(String Asiento, String Usuario, String Inicio, String Fin)
+        {
+            using (HotellingCon context = new HotellingCon())
+            {
+                var std = new Tbl_AsignacionAsientos()
+                {
+                    Id_Asiento = Convert.ToInt16(Asiento),
+                    Id_Usuario = Convert.ToInt16(Usuario),
+                    Fecha_Inicio = Convert.ToDateTime(Inicio),
+                    Fecha_Final = Convert.ToDateTime(Fin),
+
+                };
+
+                context.Tbl_AsignacionAsientos.Add(std);
+                context.SaveChanges();
+
+            }
+
+        }
+
+
         public List<String[]> datosUsuarios()
         {
             List<String[]> retorno = new List<string[]>();
@@ -176,7 +197,7 @@ namespace BL
             using (HotellingCon context = new HotellingCon())
             {
 
-                //retorno 
+
                 var test = context.Tbl_Asientos.Join(context.Tbl_Oficinas,
                     asien => asien.Id_oficina,
                     offi => offi.Id_Oficina,
@@ -231,7 +252,7 @@ namespace BL
         {
             using (HotellingCon context = new HotellingCon())
             {
-            var val = context.Tbl_Asientos.SingleOrDefault(x => x.Id_Asiento == Id);
+                var val = context.Tbl_Asientos.SingleOrDefault(x => x.Id_Asiento == Id);
                 if (val != null)
                 {
                     val.Es_Fijo = Convert.ToBoolean(data[0]);
@@ -242,44 +263,45 @@ namespace BL
                     context.SaveChanges();
                 }
 
-                //context.Tbl_Asientos.Attach((Tbl_Asientos)val);
-                //var entry = context.Entry(val);
-                //entry.Property(e => e.).IsModified = true;
-                //// other changed properties
-                //context.SaveChanges();
+
+            }
+        }
+
+        public List<string[]> DatosReserva(String Nombre)
+        {
+
+            List<string[]> retorno = new List<string[]>();
+
+            using (HotellingCon context = new HotellingCon())
+            {
 
 
+                var test = context.Tbl_Asientos.Join(context.Tbl_Oficinas,
+                    asien => asien.Id_oficina,
+                    offi => offi.Id_Oficina,
+                    (asien, offi) => new { asien, offi })
+                    .Where(x => x.offi.Nombre_Oficina == Nombre).ToArray();
 
-                //var original = context.Tbl_Asientos.Find(Id);
-                //    original.Es_Fijo = Convert.ToBoolean( data[0]);
-                //    original.Tiene_Telefono = Convert.ToBoolean(data[1]);
-                //    original.Tiene_Monitor = Convert.ToBoolean(data[2]);
-                //    original.Tiene_Teclado_Mouse = Convert.ToBoolean(data[3]);
-                //    original.Es_Especial = Convert.ToBoolean(data[4]);
-                //    var entry = context.Entry(original);
-                //    entry.State = EntityState.Modified;
+                foreach (var c in test)
+                {
+                    string[] datos = new string[6];
 
-                //    entry.Property(e => e.Tiene_Monitor).IsModified = true;
-                //    entry.Property(e => e.Es_Fijo).IsModified = true;
-                //    entry.Property(e => e.Tiene_Teclado_Mouse).IsModified = true;
-                //    entry.Property(e => e.Tiene_Telefono).IsModified = true;
-                //    entry.Property(e => e.Es_Especial).IsModified = true;
-
-                //    context.SaveChanges();
-
-
+                    datos[0] = c.asien.Id_Asiento.ToString();
+                    datos[1] = c.asien.Es_Fijo.ToString();
+                    datos[2] = c.asien.Tiene_Telefono.ToString();
+                    datos[3] = c.asien.Tiene_Monitor.ToString();
+                    datos[4] = c.asien.Tiene_Teclado_Mouse.ToString();
+                    datos[5] = c.asien.Es_Especial.ToString();
+                    retorno.Add(datos);
+                }
 
 
             }
+
+
+            return retorno;
         }
 
 
     }
 }
- //if (val != null) {
-                //    val.Es_Fijo = Convert.ToBoolean(data[0]);
-                //    val.Tiene_Telefono = Convert.ToBoolean(data[1]);
-                //    val.Tiene_Monitor = Convert.ToBoolean(data[2]);
-                //    val.Tiene_Teclado_Mouse = Convert.ToBoolean(data[3]);
-                //    val.Es_Especial = Convert.ToBoolean(data[4]);
-                //}

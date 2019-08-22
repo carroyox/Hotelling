@@ -9,8 +9,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div class="menu-bar">
+        <div class="menu-bar">
         <ul>
             <li class ="active"><a href = "Principal.aspx"> Home</a></li>
             <li><a href = "Usuarios.aspx">Users</a></li>
@@ -30,8 +29,7 @@
              <input type = "button"  value = "LogOut"  onclick = "location='Login.aspx'"/>
         </div>
     </div>
-
-
+ 
     <div class="Social-Bar">
         <a href="http://www.facebook.com"><img src="Images/facebook.png" class="icon icon-facebook"></a>
         <a href="http://www.instagram.com"><img src="Images/Instagram.png" class="icon icon-instagram"></a>

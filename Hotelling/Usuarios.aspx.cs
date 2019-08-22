@@ -12,15 +12,10 @@ namespace Hotelling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
-                ArrayOfString datos = API.Oficinas();
-                DDLOficina.DataSource = datos;
-                DDLOficina.DataBind();
-                DataGridPersonas();
 
-            }
+            refresh();
+
+
         }
 
 
@@ -33,6 +28,7 @@ namespace Hotelling
             UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
 
             API.Save(datos);
+            refresh();
         }
 
 
@@ -51,6 +47,17 @@ namespace Hotelling
 
             }).ToArray();
             DGPersonas.DataBind();
+
+        }
+
+
+        private void refresh() {
+            UserApiSave.UserAPISoapClient API = new UserApiSave.UserAPISoapClient();
+            ArrayOfString datos = API.Oficinas();
+            DDLOficina.DataSource = datos;
+            DDLOficina.DataBind();
+            DataGridPersonas();
+
 
         }
     }

@@ -21,11 +21,11 @@
           <Key>
             <PropertyRef Name="Asignacion_Asiento" />
           </Key>
+          <Property Name="Asignacion_Asiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Asiento" Type="int" Nullable="false" />
           <Property Name="Id_Usuario" Type="int" Nullable="false" />
           <Property Name="Fecha_Inicio" Type="datetime" Nullable="false" />
           <Property Name="Fecha_Final" Type="datetime" Nullable="false" />
-          <Property Name="Asignacion_Asiento" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Oficinas">
           <Key>

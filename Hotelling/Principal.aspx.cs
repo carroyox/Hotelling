@@ -11,7 +11,27 @@ namespace Hotelling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Session["Perfil"] == null || Session["Perfil"].ToString().Equals("Mp=false"))
+                {
+                    Response.Write("<script>alert('Login Fail');</script>");
 
+                    Response.Redirect("Login.aspx");
+                }
+                else 
+                {
+
+                    Response.Write("<script>alert('Login Succesfull');</script>");
+
+                }
+                
+
+
+
+
+
+            }
         }
     }
 }

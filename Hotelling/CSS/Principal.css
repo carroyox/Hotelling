@@ -17,13 +17,14 @@ body {
     float: left;
     margin-top: 10px;
     background: black;
+    float: left;
 }
 
     .menu-bar ul {
         display: inline-flex;
         list-style: none;
         margin-left: 15px;
-        /*float: left;*/
+       
     }
 
         .menu-bar ul li {
@@ -148,29 +149,42 @@ li {
     justify-content: center;
 }
 
+.flex {
+    flex: 1.30;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .Container {
     max-width: 400px;
     height: auto;
     background-color: #efefef;
     margin: 20% auto;
     padding-bottom: 1rem;
-    border-bottom: solid .4rem #A9BAD7;
-    border-left: solid .4rem #A9BAD7;
-    border-right: solid .4rem #A9BAD7;
+    border: solid .4rem #A9BAD7;
 }
 
-    .Container h3 {
-        font-weight: bold;
-        text-align: center;
-        color: #cac8c8;
-        font-size: 18px;
-    }
+.with {
+    max-width: 74%;
+    height: auto;
+    background-color: #efefef;
+    margin: 20% auto;
+    padding-bottom: 1rem;
+    border: solid .4rem #A9BAD7;
+}
+
+.Container h3 {
+    font-weight: bold;
+    text-align: center;
+    color: #cac8c8;
+    font-size: 18px;
+}
 
 .form-top {
     width: 100%;
     text-align: center;
     padding: 2rem 0 1rem;
-    border-top: solid .4rem #A9BAD7;
     margin-bottom: 1rem;
 }
 
@@ -364,10 +378,8 @@ body {
 }
 
 .table-responsive {
-   
     display: block;
     width: 80%;
-    
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -387,6 +399,5 @@ body {
 
 
 .seats {
- background-image: url('../Images/desk2.png');
-
+    background-image: url('../Images/desk2.png');
 }

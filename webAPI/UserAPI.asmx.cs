@@ -29,11 +29,11 @@ namespace webAPI
                     nuevo.SaveUser(datos[1], datos[2], datos[3], datos[4], datos[5], datos[6], datos[7], datos[8]);
                     break;
                 case "Office":
-                    //nuevo.SaveOffice(datos[1], datos[2], datos[3], datos[4]);
+                    nuevo.SaveOffice(datos[1], datos[2], datos[3], datos[4], Convert.ToInt16(datos[5]));
                     break;
-                case "Perfil":
+                case "Reserva":
+                    nuevo.ReservedSeat(datos[1], datos[2], datos[3], datos[4]);
                     break;
-
 
 
             }
@@ -101,13 +101,28 @@ namespace webAPI
 
 
         [WebMethod]
-        public void seatsSave(int id, string[]data)
+        public void seatsSave(int id, string[] data)
         {
             Reference nuevo = new Reference() { };
 
             nuevo.SaveSeat(id, data);
 
-           
+
         }
+
+        [WebMethod]
+        public List<String[]> ReservaDatos(String name)
+        {
+            Reference nuevo = new Reference() { };
+            return nuevo.DatosReserva(name);
+        }
+
+
+
+
+
+
+
+
     }
 }
