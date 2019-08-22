@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using DAL;
+using System.Data.Entity;
 
 namespace BL
 {
@@ -230,20 +231,43 @@ namespace BL
         {
             using (HotellingCon context = new HotellingCon())
             {
-                var val = context.Tbl_Asientos.Where(x => x.Id_Asiento == Id);
+            var val = context.Tbl_Asientos.SingleOrDefault(x => x.Id_Asiento == Id);
+                if (val != null)
+                {
+                    val.Es_Fijo = Convert.ToBoolean(data[0]);
+                    val.Tiene_Telefono = Convert.ToBoolean(data[1]);
+                    val.Tiene_Monitor = Convert.ToBoolean(data[2]);
+                    val.Tiene_Teclado_Mouse = Convert.ToBoolean(data[3]);
+                    val.Es_Especial = Convert.ToBoolean(data[4]);
+                    context.SaveChanges();
+                }
 
-                //if (val != null) {
-                //    val.Es_Fijo = Convert.ToBoolean(data[0]);
-                //    val.Tiene_Telefono = Convert.ToBoolean(data[1]);
-                //    val.Tiene_Monitor = Convert.ToBoolean(data[2]);
-                //    val.Tiene_Teclado_Mouse = Convert.ToBoolean(data[3]);
-                //    val.Es_Especial = Convert.ToBoolean(data[4]);
-                //}
+                //context.Tbl_Asientos.Attach((Tbl_Asientos)val);
+                //var entry = context.Entry(val);
+                //entry.Property(e => e.).IsModified = true;
+                //// other changed properties
+                //context.SaveChanges();
 
 
 
+                //var original = context.Tbl_Asientos.Find(Id);
+                //    original.Es_Fijo = Convert.ToBoolean( data[0]);
+                //    original.Tiene_Telefono = Convert.ToBoolean(data[1]);
+                //    original.Tiene_Monitor = Convert.ToBoolean(data[2]);
+                //    original.Tiene_Teclado_Mouse = Convert.ToBoolean(data[3]);
+                //    original.Es_Especial = Convert.ToBoolean(data[4]);
+                //    var entry = context.Entry(original);
+                //    entry.State = EntityState.Modified;
 
-                context.SaveChanges();
+                //    entry.Property(e => e.Tiene_Monitor).IsModified = true;
+                //    entry.Property(e => e.Es_Fijo).IsModified = true;
+                //    entry.Property(e => e.Tiene_Teclado_Mouse).IsModified = true;
+                //    entry.Property(e => e.Tiene_Telefono).IsModified = true;
+                //    entry.Property(e => e.Es_Especial).IsModified = true;
+
+                //    context.SaveChanges();
+
+
 
 
             }
@@ -252,3 +276,10 @@ namespace BL
 
     }
 }
+ //if (val != null) {
+                //    val.Es_Fijo = Convert.ToBoolean(data[0]);
+                //    val.Tiene_Telefono = Convert.ToBoolean(data[1]);
+                //    val.Tiene_Monitor = Convert.ToBoolean(data[2]);
+                //    val.Tiene_Teclado_Mouse = Convert.ToBoolean(data[3]);
+                //    val.Es_Especial = Convert.ToBoolean(data[4]);
+                //}

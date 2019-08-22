@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>System Q&R / CR</title>
+    <title>Hoteling</title>
     <link href="CSS/StyleLogin.css" rel="stylesheet" />
     <script src="JS/login.js" type="text/javascript"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="Images/icon.png">
@@ -14,7 +14,7 @@
         <div id="wrapper">
 
             <div id="left">
-
+                
                 <div class="login">
 
 
@@ -47,7 +47,7 @@
                         </div>
 
                         <footer id="main-footer">
-                            <span>&copy;Copyright 2017 - Universidad Shit</span><br />
+                            <span>&copy;Hoteling - Universidad Americana</span><br />
                             <span>Todos los derechos reservados</span>
                             <div>
                                 <a href="a">Terms of use</a> | <a href="#">Privacy Policy</a>
@@ -59,34 +59,25 @@
 
                 </div>
 
-
-
-
-
-
-
-
-
-
             </div>
 
             <div id="right">
-                <div class="showcase mySlides fade" style="background: url(Images/bklog1.jpg) no-repeat center">
+                <div class="showcase mySlides fade" style="background: url(Images/cubicules5.jpg) no-repeat center">
                     <div class="text">
-                        <h1 class="label">Let's create the future together.</h1>
+                        <h1 class="label">Reserve your WorkStation</h1>
                     </div>
 
                 </div>
 
-                <div class="showcase mySlides fade" style="background: url(Images/bklog2.jpg) no-repeat center">
+                <div class="showcase mySlides fade" style="background: url(Images/cubicles4.jpg) no-repeat center">
                     <div class="text">
-                        <h1 class="label">Let's create the future together.</h1>
+                        <h1 class="label">We have entire offices available</h1>
                     </div>
                 </div>
 
-                <div class="showcase mySlides fade" style="background: url(Images/bklog3.jpg) no-repeat center">
+                <div class="showcase mySlides fade" style="background: url(Images/cubicles3.jpg) no-repeat center">
                     <div class="text">
-                        <h1 class="label">Let's create the future together.</h1>
+                        <h1 class="label">Let's have your meetings in our Rooms</h1>
                     </div>
                 </div>
 

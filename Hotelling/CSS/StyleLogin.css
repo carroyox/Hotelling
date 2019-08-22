@@ -1,7 +1,4 @@
-﻿
-
-
-/* Acomodo segun pantalla */
+﻿/* Acomodo segun pantalla */
 @media(min-width: 1200px) {
     #left {
         flex: 4;
@@ -43,11 +40,10 @@
 body {
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
-    background: #181818;
-    color: #fff;
+    background: #D3D3D3;
+    color: #8FBC8F;
     overflow: hidden;
     margin: 0;
-   
 }
 
 
@@ -101,7 +97,7 @@ body {
         border: none;
         outline: none;
         height: 40px;
-        background: #f96816;
+        background: #808080;
         border-radius: 20px;
         margin-bottom: 20px;
         width: 100%;
@@ -160,10 +156,10 @@ body {
     font-size: 0.8rem;
     max-width: 80%;
     padding-top: 5rem;
-    margin:auto;
+    margin: auto;
 }
 
     #main-footer a {
-        color: #f96816;
+        color: #8FBC8F;
         text-decoration: underline;
     }

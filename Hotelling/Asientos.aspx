@@ -40,13 +40,13 @@
                         </div>
                         <div class="modal-body">
                             <label>
-                                <asp:CheckBox ID="ChkEspecial" runat="server" Text="Especial" /></label><br>
+                                <asp:CheckBox ID="ChkEspecial" runat="server" Text="Special" /></label><br>
                             <label>
                                 <asp:CheckBox ID="ChkPhone" runat="server" Text="Phone" /></label><br>
                             <label>
                                 <asp:CheckBox ID="ChkMonitor" runat="server" Text="Monitor" /></label><br>
                             <label>
-                                <asp:CheckBox ID="ChkFijo" runat="server" Text="Es Fijo" /></label><br>
+                                <asp:CheckBox ID="ChkFijo" runat="server" Text="Rotative" /></label><br>
                             <label>
                                 <asp:CheckBox ID="ChkKM" runat="server" Text="Keyboard & mouse" /></label><br>
                         </div>
